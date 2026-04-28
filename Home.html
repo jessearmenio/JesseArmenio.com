@@ -1,1546 +1,546 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Jesse Armenio</title>
-    <script src="Scripts/jquery-3.5.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/CustomStyles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#826f6b">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#826f6b">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="13nq-fV7vr39pExKkAWFrIXRE4HeUDFJSUWgGdYEZYM" />
+    <meta name="msapplication-TileColor" content="#0a1220">
+    <meta name="theme-color" content="#0a1220">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4b245c958c.js" crossorigin="anonymous"></script>
+
     <style>
-        body,
-        h1,
-        h2,
-        h4,
-        h5,
-        h6 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        :root {
+            --bg-0: #02050b;
+            --bg-1: #07111d;
+            --bg-2: #0c1828;
+            --bg-3: #11233a;
+            --panel: rgba(10, 18, 30, 0.78);
+            --panel-strong: rgba(10, 18, 30, 0.92);
+            --panel-soft: rgba(255, 255, 255, 0.03);
+            --border: rgba(160, 198, 255, 0.14);
+            --border-strong: rgba(173, 208, 255, 0.24);
+            --text: #eef5ff;
+            --text-soft: rgba(225, 235, 248, 0.82);
+            --text-muted: rgba(210, 223, 241, 0.58);
+            --accent: #8eb7ff;
+            --accent-2: #c2d9ff;
+            --accent-3: #72a2ef;
+            --good: #9fd0ff;
+            --shadow: 0 20px 70px rgba(0, 0, 0, 0.32);
+            --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.18);
+            --radius-xl: 32px;
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+            --content-width: min(1240px, calc(100% - 40px));
         }
-
-        h3 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        @media only screen and (max-width: 600px) {
-            h3 {
-                margin: 10px 0px 0px 0px;
-            }
-        }
-
-        #box {
-            outline: solid 1px #000
-        }
-
-        #db-title {
-            padding-top: 0px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #db-title {
-                padding-top: 10px;
-            }
-        }
-
-        #database-bar {
-            font-weight: 700;
-            letter-spacing: 4px;
-            width: 95%;
-            background-image: linear-gradient(-225deg,
-                    #fff 0%,
-                    #616161 29%,
-                    #f1f1f1 67%,
-                    #fff 100%);
-            background-size: auto auto;
-            background-clip: border-box;
-            background-size: 200% auto;
-            color: #000 !important;
-            background-clip: text;
-            animation: textclip2 2s linear infinite;
-            -webkit-animation: textclip2 2s linear infinite;
-            display: inline-block;
-            transition: 1s ease-in;
-            outline: solid 1px #000
-        }
-
-        #cs-title {
-            padding-top: 10px;
-        }
-
-        #CS-bar {
-            font-weight: 700;
-            letter-spacing: 4px;
-            width: 85%;
-            background-image: linear-gradient(-225deg,
-                    #fff 0%,
-                    #616161 29%,
-                    #f1f1f1 67%,
-                    #fff 100%);
-            background-size: auto auto;
-            background-clip: border-box;
-            background-size: 200% auto;
-            color: #000 !important;
-            background-clip: text;
-            animation: textclip2 2s linear infinite;
-            -webkit-animation: textclip2 2s linear infinite;
-            display: inline-block;
-            transition: 1s ease-in;
-            outline: solid 1px #000
-        }
-
-        #ns-title {
-            padding-top: 10px;
-
-        }
-
-        #Network-bar {
-            font-weight: 700;
-            letter-spacing: 4px;
-            width: 75%;
-            background-image: linear-gradient(-225deg,
-                    #fff 0%,
-                    #616161 29%,
-                    #f1f1f1 67%,
-                    #fff 100%);
-            background-size: auto auto;
-            background-clip: border-box;
-            background-size: 200% auto;
-            color: #000 !important;
-            background-clip: text;
-            animation: textclip2 2s linear infinite;
-            -webkit-animation: textclip2 2s linear infinite;
-            display: inline-block;
-            transition: 1s ease-in;
-            outline: solid 1px #000
-        }
-
-        @keyframes textclip2 {
-            to {
-                background-position: -200% center;
-            }
-        }
-
-
-        @keyframes database {
-            0% {
-                width: 0%;
-            }
-
-            15% {
-                width: 95%;
-
-            }
-
-            100% {
-                width: 95%;
-
-            }
-
-        }
-
-        @keyframes computer {
-            0% {
-                width: 0%;
-            }
-
-            15% {
-                width: 85%;
-
-            }
-
-            100% {
-                width: 85%;
-
-            }
-
-        }
-
-        @keyframes network {
-            0% {
-                width: 0%;
-            }
-
-            15% {
-                width: 75%;
-
-            }
-
-            100% {
-                width: 75%;
-
-            }
-
-        }
-
-
-        #up-box {
-            vertical-align: middle;
-            -webkit-transform: perspective(1px) translateZ(0);
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-            -webkit-transition-duration: 0.3s;
-            transition-duration: 0.3s;
-        }
-
-        #up-arrow {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0)
-        }
-
-        #up-box:hover #up-arrow,
-        #up-box:focus #up-arrow,
-        #up-box:active #up-arrow {
-            -webkit-animation-name: hvr-icon-wobble-vertical;
-            animation-name: hvr-icon-wobble-vertical;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out;
-            -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
-        }
-
-        /* Icon Wobble Vertical */
-        @-webkit-keyframes hvr-icon-wobble-vertical {
-            16.65% {
-                -webkit-transform: translateY(6px);
-                transform: translateY(6px);
-            }
-
-            33.3% {
-                -webkit-transform: translateY(-5px);
-                transform: translateY(-5px);
-            }
-
-            49.95% {
-                -webkit-transform: translateY(4px);
-                transform: translateY(4px);
-            }
-
-            66.6% {
-                -webkit-transform: translateY(-2px);
-                transform: translateY(-2px);
-            }
-
-            83.25% {
-                -webkit-transform: translateY(1px);
-                transform: translateY(1px);
-            }
-
-            100% {
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes hvr-icon-wobble-vertical {
-            16.65% {
-                -webkit-transform: translateY(6px);
-                transform: translateY(6px);
-            }
-
-            33.3% {
-                -webkit-transform: translateY(-5px);
-                transform: translateY(-5px);
-            }
-
-            49.95% {
-                -webkit-transform: translateY(4px);
-                transform: translateY(4px);
-            }
-
-            66.6% {
-                -webkit-transform: translateY(-2px);
-                transform: translateY(-2px);
-            }
-
-            83.25% {
-                -webkit-transform: translateY(1px);
-                transform: translateY(1px);
-            }
-
-            100% {
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
-        }
-
-
-
-        h9 {
-            text-align: center;
-        }
-
-        #bioportion {
-            padding: 0 20px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #bioportion {
-                text-align: center;
-            }
-        }
-
-        #work {
-            padding: 50px 16px;
-            position: relative;
-            text-align: center;
-        }
-
-        #work svg {
-            height: 300px;
-            width: 200px;
-            padding: 0px;
-        }
-
-        #middlebio {
-            padding: 128px 16px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #middlebio {
-                padding: 16px 16px
-            }
-        }
-
-        #top-social {
-            text-decoration-style: none;
-            color: #826f6b
-        }
-
-        #top-social:hover {
-            opacity: 0.5;
-        }
-
-        #SP,
-        #SQL,
-        #AZ,
-        #PB {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size: 20px;
-        }
-
-
-        #work2 {
-            padding: 50px 16px;
-            position: relative;
-            text-align: center;
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-            transition: 0.5s ease-in;
-            -webkit-transform: perspective(1px) translateZ(0);
-            transform: perspective(1px) translateZ(0);
-        }
-
-        #work2:hover,
-        #work2:focus,
-        #work2:active {
-            -webkit-animation-name: hvr-wobble-skew;
-            animation-name: hvr-wobble-skew;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out;
-            -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
-
-        }
-
-        #whatiworkbutton {
-            margin-top: 20px;
-            margin-left: 10px;
-            transition: 0.5s ease-out;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #whatiworkbutton {
-                margin-left: 0;
-                margin-bottom: 50px;
-            }
-        }
-
-        /*Technical, Reporting, Build, Design Top Padding*/
-        #highlights {
-            padding-top: 15px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #about {
-                padding: 60px 6px !important;
-            }
-        }
-
-        @media only screen and (max-width: 600px) {
-            #highlights {
-                padding-left: 0px;
-                padding-right: 0px
-            }
-        }
-
-        #promo {
-            color: white;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 500;
-            font-stretch: condensed;
-            text-transform: uppercase;
-            transition: 1s ease-in;
-
-        }
-
-        @media only screen and (max-width: 500px) {
-            #promo-container {
-                margin-left: 0px;
-
-            }
-        }
-
-        @keyframes textclip {
-            to {
-                background-position: 200% center;
-            }
-        }
-
-        @media only screen and (max-width: 600px) {
-            #promo-container {
-                padding: 32px 16px
-            }
-        }
-
-
-        /* Career History / hard Skills - Spacing */
-        .skillcontainer {
-            padding-top: 5px;
-        }
-
-        #skills {
-            padding: 2rem 40px 0px 40px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #skills {
-                padding: 40px 0px 0px 0px;
-            }
-        }
-
-        #skill-rows {
-            padding-top: 64px !important;
-        }
-
-        p {
-            font-size: 1.16rem;
-        }
-
-        #contact {
-            text-align: center;
-            padding: 128px 0px;
-        }
-
-        #contactbutton {
-            transition: 0.5s ease-out;
-        }
-
-        #contact-card {
-            margin-top: 48px;
-            box-sizing: border-box;
-            display: inline-block;
-            box-shadow:
-                0 0 0 10px hsl(0, 0%, 50%),
-                0 0 0 15px hsl(0, 0%, 60%),
-                0 0 0 20px hsl(0, 0%, 70%),
-                0 0 0 25px hsl(0, 0%, 80%),
-                0 0 0 30px hsl(0, 0%, 90%);
-            border: 1px solid #826f6b;
-            padding: 30px 20px;
-            text-align: left;
-        }
-
-        /*welcome header styling*/
-
-
-        #hightlight-icon {
-            -webkit-transform: perspective(1px) translateZ(0);
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        }
-
-        #hightlight-icon:hover,
-        #hightlight-icon:focus,
-        #hightlight-icon:active {
-            -webkit-animation-name: hvr-wobble-vertical;
-            animation-name: hvr-wobble-vertical;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out;
-            -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
-        }
-
-        #mainbio,
-        #passions {
-            padding: 20px 0px 0px 10px;
-            font-size: 18px;
-        }
-
-
-        .w3-large {
-            font-size: 1.5rem !important;
-        }
-
-        .w3-image {
-            max-width: 70%;
-            float: right;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .w3-image {
-                text-align: center;
-                max-width: 100%;
-                float: none;
-            }
-        }
-
-        body,
-        html {
-            height: 100%;
-            line-height: 1.8;
-        }
-
-        #bodyavatar {
-            outline: none;
-            transition: 0.5s ease-out;
-            border-radius: 4%;
-            box-shadow: 0 0 5px #826f6b, 0 0 10px #826f6b, 0 0 15px #826f6b;
-        }
-
-        /* Full height image header */
-        .bgimg-1 {
-            background-position: top left;
-            background-size: cover;
-            background-image: url("https://github.com/jessearmenio/JesseArmenio.com-V2/blob/main/setty_064%20(2)%20(2).jpg?raw=true");
-            min-height: 100%;
-        }
-
-        #jobtitle {
-            margin-top: -15px;
-            display: flex;
-            color: #826f6b;
-        }
-
-        #jobtitle2 {
-            margin-top: 20px;
-            display: flex;
-            color: #cec7c5;
-        }
-
-        .center {
-            width: 180px;
-            height: 60px;
-            position: absolute;
-        }
-
-        .center .btn {
-            width: 180px;
-            height: 60px;
-            cursor: pointer;
-            background: transparent;
-            border: 1px solid #826f6b;
-            outline: none;
-            transition: 1s ease-in-out;
-        }
-
-        .btn svg {
-            position: absolute;
-            left: 0;
-            top: 0;
-            fill: none;
-            stroke: #fff;
-            stroke-dasharray: 150 480;
-            stroke-dashoffset: 150;
-            transition: 1s ease-in-out;
-        }
-
-        .btn:hover {
-            transition: 1s ease-in-out;
-            background: #826f6b;
-        }
-
-        .btn:hover svg {
-            stroke-dashoffset: -480;
-        }
-
-        .btn span {
-            color: white;
-            font-size: 22px;
-            font-weight: 200;
-        }
-
-        #learnbutton {
-            margin-top: 10px !important;
-            margin-left: 5px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #learnbutton {
-                margin-left: 17px;
-            }
-        }
-
-        .bar .button {
-            padding: 16px;
-        }
-
-        .ham7 .top {
-            stroke-dasharray: 40 82;
-        }
-
-        .ham7 .middle {
-            stroke-dasharray: 40 111;
-        }
-
-        .ham7 .bottom {
-            stroke-dasharray: 40 161;
-        }
-
-        .ham7.active .top {
-            stroke-dasharray: 17 82;
-            stroke-dashoffset: -62px;
-        }
-
-        .ham7.active .middle {
-            stroke-dashoffset: 23px;
-        }
-
-        .ham7.active .bottom {
-            stroke-dashoffset: -83px;
-        }
-
-        .ham {
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-            transition: transform 400ms;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            animation: intro 2s;
-            will-change: transform;
-            position: relative;
-            right: 1px;
-            bottom: 0px;
-        }
-
-        @keyframes intro {
-            from {
-                transform: rotate(180deg);
-
-            }
-
-            to {
-                transform: rotate(0);
-
-            }
-        }
-
-        @media only screen and (max-width : 700px) {
-            .ham {
-                position: relative;
-                right: 4.7px;
-                bottom: 5px;
-            }
-        }
-
-        .hamRotate:hover,
-        .hamRotate180:hover {
-            transform: scale(0.9);
-            transition: .2s ease-out;
-            will-change: transform;
-        }
-
-        .hamRotate.active {
-            transform: rotate(45deg);
-            will-change: transform;
-        }
-
-        .hamRotate180.active {
-            transform: rotate(180deg);
-            will-change: transform;
-        }
-
-        .line {
-            fill: none;
-            transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-            stroke: #424141;
-            stroke-width: 5.5;
-            stroke-linecap: round;
-        }
-
-        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
         *,
-        *::after,
-        *::before {
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
             margin: 0;
-            padding: 0;
-            box-sizing: inherit;
+            color: var(--text);
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(58, 107, 202, 0.18), transparent 24%),
+                radial-gradient(circle at 80% 20%, rgba(92, 162, 255, 0.10), transparent 22%),
+                radial-gradient(circle at center, #0f1a2b 0%, #050910 62%, #02050b 100%);
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
         }
 
-        .navigation__checkbox {
-            display: none;
-        }
-
-        .navigation__button {
-            background-color: #EEEEED;
-            height: 5.2rem;
-            width: 5.2rem;
-            position: fixed;
-            top: 2.7rem;
-            left: 2.8rem;
-            border-radius: 50%;
-            z-index: 2000;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
-            text-align: center;
-            cursor: pointer;
-        }
-
-
-        .navigation__button:active {
-            transition: .2s ease-in;
-            box-shadow:
-                inset 0 3px 0px,
-                #9c9c9c 1px 1px 2px
-        }
-
-        @media only screen and (max-width : 420px) {
-            .navigation__button {
-                top: 0.9rem;
-                left: 0.9rem;
-                height: 4.7rem;
-                width: 4.7rem;
-            }
-        }
-
-        .navigation__background {
-            height: 5rem;
-            width: 5rem;
-            border-radius: 50%;
-            position: fixed;
-            top: 2.8rem;
-            left: 2.9rem;
-            background-image: radial-gradient(#826f6b, #000);
-            z-index: 1000;
-            transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-            will-change: transform;
-        }
-
-
-        @media only screen and (max-width : 420px) {
-            .navigation__background {
-                top: 1rem;
-                left: 1rem;
-                height: 4.5rem;
-                width: 4.5rem;
-            }
-        }
-
-        .navigation__nav {
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: -3000px;
-            z-index: 1500;
-            opacity: 0;
-            width: 0;
-            transition: all 0.8s cubic-bezier(0.68, -0.40, 0.265, 1.25);
-        }
-
-        .navigation__list {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            list-style: none;
-            text-align: center;
-            width: 100%;
-        }
-
-        .navigation__item {
-            margin: 1rem;
-        }
-
-        .navigation__link:link,
-        .navigation__link:visited {
-            display: inline-block;
-            font-size: 2.5rem;
-            font-weight: 300;
-            padding: 1rem 2rem;
-            color: #fff;
+        a {
+            color: inherit;
             text-decoration: none;
-            text-transform: uppercase;
-            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
-            background-size: 255%;
-            transition: all 0.4s;
         }
 
-        .navigation__link:link span,
-        .navigation__link:visited span {
-            margin-right: 0.5rem;
-            display: inline-block;
-        }
-
-        .navigation__link:hover,
-        .navigation__link:active {
-            background-position: 100%;
-            color: #424141;
-            transform: translateX(1rem);
-        }
-
-        .navigation__checkbox:checked~.navigation__background {
-            transform: scale(90);
-        }
-
-        .navigation__checkbox:checked~.navigation__nav {
-            opacity: 1;
-            width: 100%;
-            left: 0;
-        }
-
-        .navigation__icon {
-            position: relative;
-            margin-top: 2.5rem;
-        }
-
-        .navigation__icon,
-        .navigation__icon::before,
-        .navigation__icon::after {
-            width: 3rem;
-            height: 2px;
-            background-color: #B0BEC5;
-            display: inline-block;
-            top: 0rem
-        }
-
-        @media only screen and (max-width : 900px) {
-
-            .navigation__icon,
-            .navigation__icon::before,
-            .navigation__icon::after {
-                top: -0.3rem;
-            }
-        }
-
-        .navigation__icon::before,
-        .navigation__icon::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            transition: all 0.2s;
-        }
-
-        .navigation__icon::before {
-            top: -0.8rem;
-            width: 3rem;
-            height: 2px;
-        }
-
-        @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
-            .navigation__icon::before {
-                top: -0.8rem;
-                width: 3rem;
-                height: 3px;
-            }
-        }
-
-        @media only screen and (max-width : 900px) {
-            .navigation__icon::before {
-                height: 2px;
-            }
-        }
-
-        .navigation__icon::after {
-            top: 0.8rem;
-        }
-
-        .navigation__button:hover .navigation__icon::before {
-            top: -1rem;
-        }
-
-        .navigation__button:hover .navigation__icon::after {
-            top: 1rem;
-        }
-
-        .navigation__checkbox:checked+.navigation__button .navigation__icon {
-            background-color: transparent;
-        }
-
-        .navigation__checkbox:checked+.navigation__button .navigation__icon::before {
-            top: 0;
-            transform: rotate(135deg);
-        }
-
-        .navigation__checkbox:checked+.navigation__button .navigation__icon::after {
-            top: 0;
-            transform: rotate(-135deg);
-            height: 2px;
-        }
-
-        /* Chrome 29+ */
-        @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
-            .navigation__checkbox:checked+.navigation__button .navigation__icon::after {
-                top: 0;
-                transform: rotate(-135deg);
-                height: 3px;
-            }
-
-            @media only screen and (max-width : 900px) {
-                .navigation__checkbox:checked+.navigation__button .navigation__icon::after {
-                    height: 2px;
-                }
-            }
-
-            .navigation__icon::after {
-                top: 0.8rem;
-            }
-
-            .navigation__button:hover .navigation__icon::before {
-                top: -0.5rem;
-                height: 2px;
-            }
-
-            .navigation__button:hover .navigation__icon::after {
-                top: 0.5rem;
-            }
-        }
-
-
-
-        #footer {
-            margin: 0 auto;
-            overflow: hidden;
-            text-align: center;
-            position: fixed;
-            top: 0%;
-            height: 125px;
-            list-style: none;
-            overflow: hidden;
-            background-color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            z-index: 3;
-            font-style: initial;
-        }
-
-        .h3 {
-            font-weight: 600;
-        }
-
-
-        /*"Made by" Heart coloring*/
-        .heart {
-            color: salmon;
-            padding-bottom: 1px;
-        }
-
-        /*
-*/
-        /*
-*/
-        .copyright-text {
-            opacity: 0.7;
-            margin: 0;
-            display: inline-block;
-            z-index: 0;
-            font-style: initial;
-            transition: .2s ease-in;
-        }
-
-        .copyright-text:hover {
-            opacity: 1;
-            transition: .3s ease-out;
-        }
-
-        /*
-*/
-        /*Adjust alignment on -- (iPhone) */
-        /*
-*/
-        /*
-*/
-        /*
-*/
-        /*
-*/
-        /*Align content center*/
-        .copyright-text,
-        .site-footer .social-icons {
-            text-align: center;
-            margin: 0;
-            color: white;
-            font-size: 11px;
-            text-decoration-style: none;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* Smartphones (portrait) ----------- */
-        @media only screen and (max-width : 420px) {
-            .copyright-text {
-                font-size: 8px;
-            }
-        }
-
-        h2 {
-            display: table-cell;
-            font-style: italic;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 12px;
-            padding-left: 2px;
-            color: white;
-        }
-
-        @media only screen and (max-width : 420px) {
-            h2 {
-                font-size: 9px;
-            }
-        }
-
-        .copyright-text a {
-            text-decoration: none;
-            font-weight: 600;
-            background-image: linear-gradient(to right, rgba(104, 255, 104, 0) 50%, #826f6b 50%);
-            background-position: -0% 0;
-            background-size: 200% auto;
-            color: #826f6b;
-            text-decoration: none;
-            transition: background-position 0.5s ease-out;
-        }
-
-        /*Full Name in Copyright text hover animation*/
-        .footer a:hover {
-            background-position: -99.99% 0;
-        }
-
-        .privacy {
-            color: #826f6b
-        }
-
-        .privacy a {
-            color: #826f6b;
-            text-decoration: underline #FFF;
-        }
-
-        .privacy a:hover {
-            color: #FFF
-        }
-
-        #facebook:hover,
-        #instagram:hover,
-        #linkedin:hover {
-            color: #826f6b
-        }
-
-        /*
-*/
-        /*
-*/
-        /*centering the entire footer as one*/
-        #footercontainer {
-            text-transform: uppercase;
-            text-align: center;
-            bottom: 0%;
-            display: inline-block;
-            z-index: 0;
-            opacity: 0;
-            width: 100%;
-            padding-left: 0px;
-            padding-right: 0px;
-            animation: fade1 2s ease-in forwards;
-            animation-delay: 1s;
-            font-family: Arial, Helvetica, sans-serif;
-            z-index: 3;
-            color: white;
-        }
-
-        /* Smartphones (portrait) ----------- */
-        @media only screen and (max-width : 420px) {
-            #footercontainer {
-                padding-bottom: 2px;
-            }
-        }
-
-        @keyframes fade1 {
-            from {
-                opacity: 0;
-                transform: translateY(20%)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        /* Container of Moving Matters Text*/
-        .wrapper {
-            position: absolute;
-            left: 113%;
-            top: 51%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            height: 159px;
-            overflow: hidden;
-            font-size: 64px;
-            line-height: 40px;
-            color: #262626;
-            font-family: inherit;
-        }
-
-        .banner-text {
-            overflow: hidden;
-            height: 59px;
-            padding: 0 40px;
-        }
-
-        .text-content {
-            margin-top: 0;
-            padding-left: 0;
-            text-align: left;
-            list-style: none;
-            animation: animate 20s forwards;
-            -webkit-animation: animate 20s forwards;
-            animation-delay: 1s;
-            -webkit-animation-delay: 1s;
-        }
-
-        .content {
-            line-height: 55px;
-            margin: 0;
-            color: #FFF;
-        }
-
-        /* Mobile Container of Moving Matters Text*/
-        .wrapper2 {
-            position: absolute;
-            left: 49.1%;
-            top: 74.7%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            height: 160px;
-            overflow: hidden;
-            font-size: 36px;
-            line-height: 40px;
-            color: #262626;
-            font-family: inherit;
-        }
-
-        .banner-text2 {
-            overflow: hidden;
-            height: 59px;
-            padding: 0 40px;
-        }
-
-        .text-content2 {
-            margin-top: 0;
-            padding-left: 0;
-            text-align: left;
-            list-style: none;
-            animation: animate 20s forwards;
-            -webkit-animation: animate 20s forwards;
-            animation-delay: 1s;
-            -webkit-animation-delay: 1s;
-        }
-
-        .content2 {
-            line-height: 55px;
-            margin: 0;
-            color: #FFF;
-        }
-
-        @keyframes animate {
-
-            0%,
-            12.66% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            16.66%,
-            29.32% {
-                transform: translate3d(0, -25%, 0);
-            }
-
-            33.32%,
-            45.98% {
-                transform: translate3d(0, -50%, 0);
-            }
-
-            49.98%,
-            62.64% {
-                transform: translate3d(0, -75%, 0);
-            }
-
-            100% {
-                transform: translate3d(0, -75%, 0);
-
-            }
-        }
-
-        #logo {
+        img {
+            max-width: 100%;
             display: block;
+        }
+
+        #particleCanvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page-shell {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            position: relative;
+            min-height: 100vh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
             align-items: center;
             justify-content: center;
-            height: 175px;
-            margin: 0px 0px 0px auto;
-            z-index: 4;
-            opacity: 1;
-            -webkit-transform: perspective(1px) translateZ(0);
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-            -webkit-animation-name: hvr-bob-float, hvr-bob;
-            animation-name: hvr-bob-float, hvr-bob;
-            -webkit-animation-duration: .3s, 1.5s;
-            animation-duration: .3s, 1.5s;
-            -webkit-animation-delay: 0s, .3s;
-            animation-delay: 0s, .3s;
-            -webkit-animation-timing-function: ease-out, ease-in-out;
-            animation-timing-function: ease-out, ease-in-out;
-            -webkit-animation-iteration-count: 1, infinite;
-            animation-iteration-count: 1, infinite;
-            -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-            -webkit-animation-direction: normal, alternate;
-            animation-direction: normal, alternate;
-            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(245deg) brightness(101%) contrast(103%);
+            padding: 88px 0;
+            isolation: isolate;
         }
 
-        #logo:active {
-            -webkit-animation-name: hvr-wobble-vertical;
-            animation-name: hvr-wobble-vertical;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out;
-            -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
+        .section-inner {
+            width: var(--content-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
-        @media only screen and (max-width : 700px) {
-            #logo {
-                height: 100px;
-            }
-
-            #logo:active {
-                -webkit-animation-name: none;
-                animation-name: none;
-            }
+        .panel {
+            background: linear-gradient(180deg, rgba(12, 21, 34, 0.84), rgba(8, 14, 24, 0.74));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 34px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
         }
 
-        @-webkit-keyframes hvr-icon-buzz {
-            50% {
-                -webkit-transform: translateX(3px) rotate(2deg);
-                transform: translateX(3px) rotate(2deg);
-            }
-
-            100% {
-                -webkit-transform: translateX(-3px) rotate(-2deg);
-                transform: translateX(-3px) rotate(-2deg);
-            }
+        .eyebrow {
+            margin: 0 0 16px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            font-size: 0.82rem;
+            font-weight: 700;
         }
 
-        @keyframes hvr-icon-buzz {
-            50% {
-                -webkit-transform: translateX(3px) rotate(2deg);
-                transform: translateX(3px) rotate(2deg);
-            }
-
-            100% {
-                -webkit-transform: translateX(-3px) rotate(-2deg);
-                transform: translateX(-3px) rotate(-2deg);
-            }
+        .section-title {
+            margin: 0 0 20px;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-weight: 800;
         }
 
-        .hvr-icon-buzz .hvr-icon {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+        .section-title#cert_title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
         }
 
-        #logo:hover {
-            -webkit-animation-name: hvr-icon-buzz;
-            animation-name: hvr-icon-buzz;
-            -webkit-animation-duration: 0.15s;
-            animation-duration: 0.15s;
-            -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
+        .section-copy {
+            margin: 0;
+            max-width: 820px;
+            color: var(--text-soft);
+            line-height: 1.9;
+            font-size: 1.03rem;
         }
 
-        @-webkit-keyframes hvr-wobble-vertical {
-            16.65% {
-                -webkit-transform: translateY(8px);
-                transform: translateY(8px);
-            }
-
-            33.3% {
-                -webkit-transform: translateY(-6px);
-                transform: translateY(-6px);
-            }
-
-            49.95% {
-                -webkit-transform: translateY(4px);
-                transform: translateY(4px);
-            }
-
-            66.6% {
-                -webkit-transform: translateY(-2px);
-                transform: translateY(-2px);
-            }
-
-            83.25% {
-                -webkit-transform: translateY(1px);
-                transform: translateY(1px);
-            }
-
-            100% {
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
+        .divider {
+            width: min(820px, 100%);
+            margin: 24px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            opacity: 0.92;
         }
 
-        @keyframes hvr-wobble-vertical {
-            16.65% {
-                -webkit-transform: translateY(8px);
-                transform: translateY(8px);
-            }
-
-            33.3% {
-                -webkit-transform: translateY(-6px);
-                transform: translateY(-6px);
-            }
-
-            49.95% {
-                -webkit-transform: translateY(4px);
-                transform: translateY(4px);
-            }
-
-            66.6% {
-                -webkit-transform: translateY(-2px);
-                transform: translateY(-2px);
-            }
-
-            83.25% {
-                -webkit-transform: translateY(1px);
-                transform: translateY(1px);
-            }
-
-            100% {
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
+        .divider span {
+            display: block;
+            height: 1px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(173, 208, 255, 0.42), rgba(255, 255, 255, 0));
         }
 
-        @-webkit-keyframes hvr-bob {
-            0% {
-                -webkit-transform: translateY(-8px);
-                transform: translateY(-8px);
-            }
-
-            50% {
-                -webkit-transform: translateY(-4px);
-                transform: translateY(-4px);
-            }
-
-            100% {
-                -webkit-transform: translateY(-8px);
-                transform: translateY(-8px);
-            }
+        .divider span:nth-child(1),
+        .divider span:nth-child(5) {
+            width: 10%;
         }
 
-        @keyframes hvr-bob {
-            0% {
-                -webkit-transform: translateY(-8px);
-                transform: translateY(-8px);
-            }
-
-            50% {
-                -webkit-transform: translateY(-4px);
-                transform: translateY(-4px);
-            }
-
-            100% {
-                -webkit-transform: translateY(-8px);
-                transform: translateY(-8px);
-            }
+        .divider span:nth-child(2),
+        .divider span:nth-child(4) {
+            width: 16%;
         }
 
-        @-webkit-keyframes hvr-bob-float {
-            100% {
-                -webkit-transform: translateY(-8px);
-                transform: translateY(-8px);
-            }
+        .divider span:nth-child(3) {
+            width: 26%;
         }
 
-        @keyframes hvr-bob-float {
-            100% {
-                -webkit-transform: translateY(-8px);
-                transform: translateY(-8px);
-            }
+        /* Hero */
+        .hero {
+            overflow: hidden;
         }
 
-        @-webkit-keyframes hvr-wobble-skew {
-            16.65% {
-                -webkit-transform: skew(-12deg);
-                transform: skew(-12deg);
-            }
-
-            33.3% {
-                -webkit-transform: skew(10deg);
-                transform: skew(10deg);
-            }
-
-            49.95% {
-                -webkit-transform: skew(-6deg);
-                transform: skew(-6deg);
-            }
-
-            66.6% {
-                -webkit-transform: skew(4deg);
-                transform: skew(4deg);
-            }
-
-            83.25% {
-                -webkit-transform: skew(-2deg);
-                transform: skew(-2deg);
-            }
-
-            100% {
-                -webkit-transform: skew(0);
-                transform: skew(0);
-            }
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to bottom, rgba(3, 8, 15, 0.14), rgba(3, 8, 15, 0.55)),
+                radial-gradient(circle at center, rgba(18, 35, 58, 0.18), transparent 55%);
+            z-index: 0;
         }
 
-        @keyframes hvr-wobble-skew {
-            16.65% {
-                -webkit-transform: skew(-12deg);
-                transform: skew(-12deg);
-            }
+        .hero-shell {
+            width: var(--content-width);
+            display: grid;
+            place-items: center;
+            padding: 36px 0 90px;
+            position: relative;
+            z-index: 2;
+        }
 
-            33.3% {
-                -webkit-transform: skew(10deg);
-                transform: skew(10deg);
-            }
-
-            49.95% {
-                -webkit-transform: skew(-6deg);
-                transform: skew(-6deg);
-            }
-
-            66.6% {
-                -webkit-transform: skew(4deg);
-                transform: skew(4deg);
-            }
-
-            83.25% {
-                -webkit-transform: skew(-2deg);
-                transform: skew(-2deg);
-            }
-
-            100% {
-                -webkit-transform: skew(0);
-                transform: skew(0);
-            }
+        .hero-center {
+            width: min(1080px, 100%);
+            text-align: center;
+            display: grid;
+            gap: 1.75rem;
+            justify-items: center;
         }
 
         .logogroup {
-            z-index: -1;
-            opacity: 0;
-            margin: 0 auto;
-            width: 100%;
-            bottom: 0;
-            position: absolute;
+            position: relative;
+            display: inline-block;
             padding-left: 0px;
             padding-right: 0px;
-            animation: fade1 1s 1 ease-out forwards;
-            animation-delay: 1s;
+            -webkit-animation-name: textAnimate;
+            animation-name: textAnimate;
+            stroke: #FFF;
+            stroke-width: 12px;
+            stroke-dashoffset: -2000;
+            stroke-dasharray: 2000;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
         }
 
+        #logo {
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            margin: auto auto auto -10px;
+            z-index: 4;
+            will-change: transform;
+            opacity: 0;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-animation-name: textAnimate2;
+            animation-name: textAnimate2;
+            stroke: #f1f1f1d9;
+            stroke-width: 12px;
+            stroke-dashoffset: -2000;
+            stroke-dasharray: 2000;
+            animation-duration: 12s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-delay: 0.9s;
+            transition: ease-in .1s;
+            overflow: visible;
+        }
 
-        @keyframes linked {
-
-            0%,
-            12%,
-            18.999%,
-            23%,
-            31.999%,
-            37%,
-            44.999%,
-            46%,
-            49.999%,
-            51%,
-            58.999%,
-            61%,
-            68.999%,
-            71%,
-            85.999%,
-            96%,
-            100% {
-                opacity: 0.99;
-                text-shadow: 0 0 7px #000, 0 0 10px #000, 0 0 21px #008fdd, 0 0 42px #008fdd, 0 0 82px #000, 0 0 92px #fff, 0 0 102px #000, 0 0 151px #008fdd;
+        @media (pointer: coarse) {
+            #logo:active {
+                transform: scale(0.96);
             }
+        }
 
-            19%,
-            22.99%,
-            32%,
-            36.999%,
-            45%,
-            45.999%,
-            50%,
-            50.99%,
-            59%,
-            60.999%,
-            69%,
-            70.999%,
-            86%,
-            95.999% {
-                opacity: 0.4;
-                text-shadow: none;
-            }
+        #hoverHint {
+            position: absolute;
+            top: 14px;
+            right: 8px;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.45);
+            pointer-events: none;
+            user-select: none;
+            transform: rotate(-6deg);
+            opacity: 0;
+            z-index: 8;
+            white-space: nowrap;
+            animation:
+                hintFadeIn 1.2s ease-out 1.2s forwards,
+                hintPulse 2.8s ease-in-out infinite 3s;
+        }
+
+        #hoverHint.hint-hide {
+            animation: none !important;
+            opacity: 0 !important;
+            transition: opacity 0.4s ease;
+        }
+
+        #hoverHint.hint-countdown {
+            animation: none !important;
+            opacity: 0.9 !important;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(140, 190, 255, 0.35);
+        }
+
+        #p1,
+        #rocketBody {
+            transform-box: fill-box;
+            transform-origin: center center;
         }
 
         #p1 {
-            animation: fade1 1s 1 ease-out forwards, linked 9s linear infinite;
-            animation-delay: 1s;
-            z-index: 0;
+            transition: opacity 180ms ease;
         }
 
-        #p2 {
+        #rocketOverlay {
             opacity: 0;
-            animation: fade2 1s 1 ease-out forwards;
-            animation-delay: 1s;
+            pointer-events: none;
+            transform-origin: center center;
         }
 
-        #p3 {
+        #rocketBody,
+        #rocketWings {
+            fill: rgba(255, 255, 255, 0);
+            stroke: #eef5ff;
+            stroke-width: 10px;
+
+            transform-box: fill-box;
+            transform-origin: center;
+
+            filter:
+                drop-shadow(0 0 12px rgba(255, 255, 255, 0.24)) drop-shadow(0 0 24px rgba(135, 190, 255, 0.14));
+        }
+
+        #rocketGlow {
             opacity: 0;
-            animation: fade3 1s 1 ease-out forwards, linked 9s linear infinite;
-            ;
-            animation-delay: 1s;
+            pointer-events: none;
         }
 
-        #p4 {
+        #logo.logo-rocket-burn #rocketGlow {
+            opacity: 1;
+            animation: glowPulse 0.18s ease-in-out infinite alternate;
+        }
+
+        #glowCore {
+            fill: rgba(255, 255, 255, 0.95);
+            filter: blur(2px);
+        }
+
+        #glowAura {
+            fill: rgba(120, 180, 255, 0.35);
+            filter: blur(18px);
+        }
+
+        #rocketFlames,
+        #rocketSmoke {
             opacity: 0;
-            animation: fade4 1s 1 ease-out forwards;
-            animation-delay: 1s;
         }
 
+        .flame {
+            transform-box: fill-box;
+            transform-origin: center top;
+        }
+
+        .flame-main {
+            fill: #fff7d6;
+            filter: drop-shadow(0 0 8px rgba(255, 234, 128, 0.65));
+        }
+
+        .flame-left,
+        .flame-right {
+            fill: #ff7b00;
+            filter: drop-shadow(0 0 8px rgba(255, 102, 0, 0.55));
+        }
+
+        .smoke {
+            fill: rgba(218, 224, 234, 0.78);
+            filter: blur(1.2px);
+            transform-origin: center;
+        }
+
+        #logo.logo-rocket-active #p1,
+        #logo.logo-rocket-active #p3 {
+            opacity: 0 !important;
+        }
+
+        .logo-rocket-active #rocketOverlay {
+            opacity: 1;
+        }
+
+        .logo-rocket-ignite #rocketBody,
+        .logo-rocket-ignite #rocketWings {
+            fill: rgba(255, 255, 255, 0.96);
+            stroke: rgba(255, 255, 255, 0.98);
+        }
+
+        .logo-rocket-burn #rocketFlames,
+        .logo-rocket-burn #rocketSmoke {
+            opacity: 1;
+        }
+
+        .logo-rocket-burn .flame-main {
+            animation: flamePulseMain 120ms ease-in-out infinite alternate;
+        }
+
+        .logo-rocket-burn .flame-left {
+            animation: flamePulseSide 95ms ease-in-out infinite alternate;
+        }
+
+        .logo-rocket-burn .flame-right {
+            animation: flamePulseSide 110ms ease-in-out infinite alternate-reverse;
+        }
+
+        .logo-rocket-burn .smoke-1 {
+            animation: smokePuff 1100ms ease-out infinite;
+        }
+
+        .logo-rocket-burn .smoke-2 {
+            animation: smokePuff 1200ms ease-out 120ms infinite;
+        }
+
+        .logo-rocket-burn .smoke-3 {
+            animation: smokePuff 1250ms ease-out 220ms infinite;
+        }
+
+        .logo-rocket-burn .smoke-4 {
+            animation: smokePuff 1050ms ease-out 180ms infinite;
+        }
+
+        .logo-rocket-burn .smoke-5 {
+            animation: smokePuff 1150ms ease-out 80ms infinite;
+        }
+
+
+        #logo.logo-rocket-burn #rocketBody,
+        #logo.logo-rocket-burn #rocketWings {
+            animation: rocketShake 0.12s infinite;
+        }
+
+        #logo.logo-rocket-burn .flame-main {
+            animation: flameGrow 2s ease-in forwards;
+        }
+
+        /* hint fade in */
+        @keyframes hintFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px) rotate(-6deg);
+            }
+
+            to {
+                opacity: 0.45;
+                transform: translateY(0px) rotate(-6deg);
+            }
+        }
+
+        @keyframes hintPulse {
+
+            0%,
+            100% {
+                opacity: 0.35;
+            }
+
+            50% {
+                opacity: 0.95;
+            }
+        }
+
+        @keyframes glowPulse {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(1.25);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flameGrow {
+            0% {
+                transform: scaleY(0.7);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scaleY(1.4);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rocketShake {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            25% {
+                transform: translate(-1px, 1px);
+            }
+
+            50% {
+                transform: translate(1px, -1px);
+            }
+
+            75% {
+                transform: translate(-1px, -1px);
+            }
+
+            100% {
+                transform: translate(1px, 1px);
+            }
+        }
+
+        @keyframes flamePulseMain {
+            0% {
+                transform: scaleY(0.82) scaleX(0.92);
+                opacity: 0.88;
+            }
+
+            100% {
+                transform: scaleY(1.2) scaleX(1.06);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flamePulseSide {
+            0% {
+                transform: scaleY(0.78) scaleX(0.9);
+                opacity: 0.72;
+            }
+
+            100% {
+                transform: scaleY(1.08) scaleX(1.02);
+                opacity: 0.96;
+            }
+        }
+
+        @keyframes smokePuff {
+            0% {
+                opacity: 0.72;
+                transform: translateY(0) scale(0.75);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(54px) scale(1.75);
+            }
+        }
+
+        /*Fade in 4-Way Animation & broken LED effect*/
+        /*
         @keyframes fade1 {
             from {
                 opacity: 0;
@@ -1588,539 +588,2918 @@
                 transform: translateX(0)
             }
         }
+
+        @keyframes linked {
+
+            0%,
+            12%,
+            18.999%,
+            23%,
+            31.999%,
+            37%,
+            44.999%,
+            46%,
+            49.999%,
+            51%,
+            58.999%,
+            61%,
+            68.999%,
+            71%,
+            85.999%,
+            96%,
+            100% {
+                opacity: 0.99;
+                text-shadow: 0 0 7px #000, 0 0 10px #000, 0 0 21px #008fdd, 0 0 42px #008fdd, 0 0 82px #000, 0 0 92px #fff, 0 0 102px #000, 0 0 151px #008fdd;
+            }
+
+            19%,
+            22.99%,
+            32%,
+            36.999%,
+            45%,
+            45.999%,
+            50%,
+            50.99%,
+            59%,
+            60.999%,
+            69%,
+            70.999%,
+            86%,
+            95.999% {
+                opacity: 0.4;
+                text-shadow: none;
+            }
+        }*/
+
+        @keyframes logoIntroFade {
+            0% {
+                opacity: 0;
+                transform: translateY(10px) scale(0.985);
+            }
+
+            100% {
+                opacity: 0.9;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes logoFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes textAnimate2 {
+            0% {
+                stroke-dasharray: 0 50%;
+                stroke-dashoffset: 20%;
+                fill: hsla(189, 68%, 75%, 0%);
+                stroke: #FFF;
+                opacity: 0.7
+            }
+
+            30% {
+                stroke-dasharray: 50% 0;
+                stroke-dashoffset: 0%;
+                fill: hsla(189, 68%, 75%, 0%);
+                stroke: #FFF;
+                opacity: 0.7
+            }
+
+            40% {
+                stroke-dasharray: 0 25%;
+                stroke-dashoffset: 10%;
+                stroke: #FFF;
+                opacity: 0.7
+            }
+
+            50% {
+                stroke: #bdd6e9;
+                opacity: 0.7
+            }
+
+            60% {
+                stroke: #FFF;
+                opacity: 0.7
+            }
+
+            80% {
+                stroke: #bdd6e9;
+                opacity: 0.7
+            }
+
+            100% {
+                stroke-dasharray: 25% 0;
+                stroke-dashoffset: 0%;
+                stroke: #FFF;
+                fill: #000;
+                opacity: 0.7
+            }
+        }
+
+        .hero-copy {
+            position: relative;
+            max-width: 980px;
+            isolation: isolate;
+        }
+
+        .hero-copy::before {
+            content: "";
+            position: absolute;
+            inset: -36px -28px;
+            z-index: -1;
+            background: radial-gradient(circle, rgba(5, 10, 18, 0.74) 0%, rgba(5, 10, 18, 0.32) 52%, rgba(5, 10, 18, 0) 100%);
+            filter: blur(20px);
+        }
+
+        .hero-title {
+            margin: 0;
+            font-size: clamp(2.8rem, 7vw, 5.75rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            font-weight: 800;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            text-align: center;
+        }
+
+        .hero-line {
+            display: block;
+            width: 100%;
+        }
+
+        .hero-line-1 {
+            text-align: center;
+        }
+
+        .hero-line-2 {
+            display: flex;
+            align-items: baseline;
+            gap: 0.17em;
+        }
+
+        .hero-title-static {
+            flex: 0 0 auto;
+        }
+
+        .word-rotator {
+            flex: 0 0 10.5ch;
+            width: 10.5ch;
+            text-align: left;
+            perspective: 900px;
+            overflow: visible;
+        }
+
+        #rotating-word {
+            display: inline-block;
+            white-space: nowrap;
+            color: var(--accent-2);
+            transform-origin: center center;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            will-change: transform, opacity;
+        }
+
+        .word-enter {
+            animation: wordFlipIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .word-exit {
+            animation: wordFlipOut 0.55s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+        }
+
+        @keyframes wordFlipOut {
+            0% {
+                opacity: 1;
+                transform: rotateX(0deg) translateY(0);
+                filter: blur(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: rotateX(90deg) translateY(-0.18em);
+                filter: blur(1px);
+            }
+        }
+
+        @keyframes wordFlipIn {
+            0% {
+                opacity: 0;
+                transform: rotateX(-90deg) translateY(0.18em);
+                filter: blur(1px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: rotateX(0deg) translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        #name {
+            display: block;
+            margin: 18px 0 8px;
+            color: var(--text);
+            font-size: clamp(1.3rem, 2.3vw, 1.95rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        #jobtitle {
+            display: block;
+            margin: 0 auto;
+            max-width: 760px;
+            color: var(--text-soft);
+            font-size: clamp(0.98rem, 1.5vw, 1.15rem);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .buttoncontainer {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 190px;
+            min-height: 56px;
+            padding: 0 1.4rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+            background: linear-gradient(135deg, rgba(119, 168, 255, 0.96), rgba(194, 217, 255, 0.96));
+            color: #08111d;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            box-shadow: 0 14px 36px rgba(111, 164, 255, 0.18);
+            transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+        }
+
+        .hero-cta.secondary {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text);
+            border: 1px solid var(--border);
+            box-shadow: none;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(111, 164, 255, 0.24);
+            filter: brightness(1.04);
+        }
+
+        .scroll-indicator {
+            margin-top: 1rem;
+            color: rgba(230, 238, 250, 0.65);
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 72px;
+            margin: 1rem auto 0;
+            background: linear-gradient(to bottom, rgba(180, 205, 255, 0.7), rgba(180, 205, 255, 0));
+        }
+
+        /* Grids */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 26px;
+        }
+
+        /* Cards */
+        .card {
+            background: linear-gradient(180deg, rgba(14, 24, 39, 0.82), rgba(9, 16, 27, 0.66));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(10px);
+        }
+
+        .icon-badge {
+            display: inline-grid;
+            place-items: center;
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            margin: 0 auto 18px;
+            font-size: 1.7rem;
+            color: var(--accent-2);
+            background: linear-gradient(180deg, rgba(126, 176, 255, 0.18), rgba(126, 176, 255, 0.06));
+            border: 1px solid rgba(173, 208, 255, 0.18);
+        }
+
+        .card h3,
+        .card h4 {
+            margin: 0 0 10px;
+            font-size: 1.08rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--text-soft);
+            line-height: 1.72;
+            font-size: 0.97rem;
+        }
+
+        /* Metrics */
+        .metric {
+            text-align: center;
+            padding: 22px 5px 22px 5px;
+        }
+
+        .metric-value {
+            display: block;
+            color: var(--accent-2);
+            font-size: clamp(1.8rem, 3vw, 2.85rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .section-combo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .combo-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 7vh;
+        }
+
+        .combo-metrics {
+            margin-bottom: 0;
+        }
+
+        .combo-about-panel {
+            width: 100%;
+        }
+
+        /* Bio */
+        .bio-wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            margin: 0;
+            padding: 14px 18px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(173, 208, 255, 0.14);
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.15;
+            min-width: 150px;
+            font-weight: 700;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .tag i {
+            color: var(--accent);
+            margin-left: 0;
+            flex: 0 0 auto;
+        }
+
+        .bio-text {
+            margin: 0;
+            color: var(--text-soft);
+            line-height: 1.9;
+            font-size: 1.03rem;
+        }
+
+        .avatar {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+        }
+
+        .combo-skills-panel {
+            width: 100%;
+        }
+
+        /* Skills */
+        .skill-cloud {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-cloud li {
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(173, 208, 255, 0.14);
+            color: var(--text-soft);
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        /* Testimonials */
+        .testimonial-switch {
+            display: none;
+        }
+
+        .slides {
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        #i1:checked~.slides #one,
+        #i2:checked~.slides #two {
+            display: block;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(180deg, rgba(12, 21, 34, 0.84), rgba(8, 14, 24, 0.74));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 34px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+        }
+
+        .testimonial-header {
+            display: grid;
+            grid-template-columns: 84px 1fr;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-avatar {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(173, 208, 255, 0.22);
+        }
+
+        .testimonial-meta {
+            color: var(--text-soft);
+            line-height: 1.7;
+        }
+
+        .testimonial-meta strong a,
+        .testimonial-meta a {
+            color: var(--accent-2);
+        }
+
+        .testimonial-meta a:hover {
+            color: white;
+        }
+
+        .testimonial-quote {
+            color: var(--text-soft);
+            line-height: 1.9;
+            font-size: 1.02rem;
+            margin: 0;
+        }
+
+        .quote-mark {
+            font-size: 1.4rem;
+            color: var(--accent-2);
+            font-weight: 800;
+        }
+
+        .dots {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .dot-label {
+            width: 42px;
+            height: 42px;
+            border-radius: 999px;
+            display: inline-grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-soft);
+            cursor: pointer;
+            transition: transform 180ms ease, background-color 180ms ease;
+        }
+
+        .dot-label:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .cert-card {
+            display: block;
+            background: linear-gradient(180deg, rgba(12, 21, 34, 0.84), rgba(8, 14, 24, 0.74));
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: var(--shadow-soft);
+            min-height: 220px;
+            display: grid;
+            place-items: center;
+        }
+
+        .cert-card img {
+            max-height: 150px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        #certifications .combo-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5vh !important;
+        }
+
+        #yardiimg {
+            filter: invert(1)
+        }
+
+        /* Contact */
+        .contact-card {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 34px;
+            border-radius: 28px;
+            background: linear-gradient(180deg, rgba(12, 21, 34, 0.88), rgba(8, 14, 24, 0.78));
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            color: var(--text-soft);
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .window-dots span {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .window-dots .red {
+            background: #ff5f57;
+        }
+
+        .window-dots .yellow {
+            background: #ffbd2f;
+        }
+
+        .window-dots .green {
+            background: #28c840;
+        }
+
+        .contact-card p {
+            margin: 0 0 16px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .contact-btn,
+        .up-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 190px;
+            min-height: 56px;
+            padding: 0 1.4rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+            background: linear-gradient(135deg, rgba(119, 168, 255, 0.96), rgba(194, 217, 255, 0.96));
+            color: #08111d;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            box-shadow: 0 14px 36px rgba(111, 164, 255, 0.18);
+            transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+        }
+
+        .contact-btn:hover,
+        .up-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        #contact .combo-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 0;
+        }
+
+        /* Footer */
+        .footer-section {
+            min-height: auto;
+            padding: 72px 0 54px;
+            scroll-snap-align: start;
+        }
+
+        .combo-footer-panel {
+            width: 100%;
+            text-align: center;
+            margin-top: 0;
+            padding-top: 28px;
+            padding-bottom: 28px;
+        }
+
+        .footer-wrap {
+            text-align: center;
+        }
+
+        .footer-actions {
+            margin-bottom: 22px;
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 26px 0;
+        }
+
+        .social-row a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-grid;
+            place-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+        }
+
+        .copyright-text,
+        .privacy {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .dev,
+        .privacy a {
+            color: var(--accent-2);
+        }
+
+        .dev:hover,
+        .privacy a:hover {
+            color: white;
+        }
+
+        .heart {
+            color: #ff8ca8;
+        }
+
+        #footer-logo {
+            width: 150px;
+            margin: 20px auto 0;
+            opacity: 0.8;
+        }
+
+        #timeMachine {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        /* Button */
+        #tm-button {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: rgba(10, 18, 30, 0.85);
+            backdrop-filter: blur(10px);
+            color: var(--accent-2);
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        #tm-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: rgba(20, 35, 60, 0.95);
+        }
+
+        /* Tooltip */
+        .tm-tooltip {
+            margin-bottom: 8px;
+            padding: 6px 10px;
+            font-size: 0.75rem;
+            color: var(--text-soft);
+            background: rgba(10, 18, 30, 0.85);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+
+        #timeMachine:hover .tm-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Panel */
+        #tm-panel {
+            margin-top: 10px;
+            width: 220px;
+            padding: 14px;
+            border-radius: 14px;
+            background: rgba(10, 18, 30, 0.95);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        #tm-panel h4 {
+            margin: 0 0 10px;
+            font-size: 0.9rem;
+            color: var(--accent-2);
+        }
+
+        #tm-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #tm-panel li {
+            margin-bottom: 8px;
+        }
+
+        #tm-panel a {
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        #tm-panel a:hover {
+            color: white;
+        }
+
+        #tm-button {
+            transform: scale(1);
+            animation: tmPulse 2.5s ease-in-out 1;
+        }
+
+        #tm-button:hover {
+            transform: translateY(-3px)
+        }
+
+        #tm-button:active {
+            transform: translateY(0) scale(0.92);
+        }
+
+        #tm-button:focus-visible {
+            outline: 2px solid var(--accent-2);
+            outline-offset: 3px;
+        }
+
+        @keyframes tmPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (min-width: 1024px) and (max-width: 1600px) {
+
+            #about .combo-inner {
+                gap: 3vh;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            #certifications .cert-grid {
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            #certifications .cert-card {
+                min-height: 170px;
+                padding: 18px;
+            }
+
+            #certifications .cert-card img {
+                max-height: 100px;
+            }
+
+            #contact .combo-inner {
+                gap: 24px;
+                margin-top: 0;
+            }
+
+            .combo-footer-panel {
+                margin-top: 0;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .grid-3,
+            .cert-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .bio-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .avatar {
+                max-width: 320px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            body {
+                scroll-snap-type: none;
+            }
+
+            .avatar {
+                height: 500px !important;
+            }
+
+
+            .section,
+            .footer-section {
+                min-height: auto;
+                scroll-snap-align: none;
+                scroll-snap-stop: normal;
+                padding: 56px 0;
+            }
+
+            .section-combo {
+                align-items: stretch;
+            }
+
+            .section-inner {
+                width: min(100%, calc(100% - 24px));
+            }
+
+            .combo-inner {
+                min-height: auto;
+                justify-content: flex-start;
+                gap: 18px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 0;
+                overflow: visible;
+            }
+
+            .hero-shell {
+                min-height: auto;
+                padding: 56px 0 40px;
+                place-items: start center;
+            }
+
+            .hero-center {
+                width: 100%;
+                gap: 1rem;
+            }
+
+            .logogroup {
+                width: min(170px, 42vw) !important;
+                margin: 0 auto 6px;
+            }
+
+            #logo {
+                margin: 0 auto;
+                width: 100%;
+                height: auto;
+            }
+
+            .hero-copy {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .hero-copy::before {
+                inset: -12px -8px;
+                filter: blur(14px);
+            }
+
+            .eyebrow {
+                margin-bottom: 10px;
+                font-size: 0.72rem;
+                letter-spacing: 0.22em;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: clamp(2.8rem, 12vw, 4.6rem);
+                line-height: 0.95;
+                letter-spacing: -0.05em;
+                text-align: center;
+            }
+
+            .hero-line {
+                display: block;
+                width: 100%;
+            }
+
+            .hero-line-1 {
+                text-align: center;
+            }
+
+            .hero-line-2 {
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+                gap: 0.1em;
+                flex-wrap: nowrap;
+            }
+
+            .word-rotator {
+                width: 8.8ch;
+                flex: 0 0 8.8ch;
+                text-align: left;
+            }
+
+            #name {
+                margin: 8px 0 6px;
+                font-size: clamp(1rem, 6vw, 1.6rem);
+                text-align: center;
+            }
+
+            #jobtitle {
+                max-width: 100%;
+                font-size: clamp(0.9rem, 4vw, 1.05rem);
+                line-height: 1.55;
+                text-align: center;
+                padding: 0 8px;
+            }
+
+            .buttoncontainer {
+                margin-top: 18px;
+                gap: 10px;
+            }
+
+            .hero-cta,
+            .contact-btn,
+            .up-btn {
+                width: 100%;
+                max-width: 320px;
+                min-width: 0;
+                min-height: 52px;
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .scroll-indicator {
+                margin-top: 12px;
+                font-size: 0.8rem;
+            }
+
+            .scroll-line {
+                height: 42px;
+            }
+
+            .panel,
+            .testimonial-card,
+            .contact-card,
+            .combo-footer-panel {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .section-title {
+                font-size: clamp(1.9rem, 8vw, 2.7rem);
+                line-height: 0.96;
+            }
+
+            .section-copy,
+            .bio-text,
+            .card p,
+            .testimonial-quote,
+            .contact-card p,
+            .copyright-text,
+            .privacy {
+                font-size: 0.98rem;
+                line-height: 1.7;
+            }
+
+            .grid-4,
+            .grid-3,
+            .grid-2,
+            .cert-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .bio-wrap {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .avatar {
+                max-width: 260px;
+            }
+
+            .tag-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .tag {
+                min-width: 0;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 0.25rem;
+                padding: 16px 14px;
+                font-size: 0.95rem;
+                line-height: 1.18;
+            }
+
+            .tag i {
+                margin-left: 0;
+                margin-top: 0.25rem;
+                align-self: flex-start;
+            }
+
+            .skill-cloud {
+                gap: 10px;
+            }
+
+            .skill-cloud li {
+                width: 100%;
+                text-align: center;
+                padding: 11px 14px;
+            }
+
+            .testimonial-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .testimonial-avatar {
+                width: 72px;
+                height: 72px;
+            }
+
+            .cert-card {
+                min-height: 160px;
+                padding: 20px;
+            }
+
+            .cert-card img {
+                max-height: 110px;
+            }
+
+            #contact .combo-inner {
+                gap: 16px;
+            }
+
+            .contact-card {
+                max-width: 100%;
+            }
+
+            .combo-footer-panel {
+                margin-top: 0;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .footer-actions {
+                margin-bottom: 16px;
+            }
+
+            .social-row {
+                gap: 12px;
+                margin: 18px 0;
+            }
+
+            .social-row a {
+                width: 44px;
+                height: 44px;
+            }
+
+            #footer-logo {
+                width: 120px;
+            }
+
+            #timeMachine {
+                bottom: 18px;
+                right: 18px;
+            }
+
+            #tm-button {
+                width: 48px;
+                height: 48px;
+                font-size: 1.05rem;
+            }
+
+            .tm-tooltip {
+                display: none;
+            }
+
+            #tm-panel {
+                width: min(220px, calc(100vw - 40px));
+            }
+        }
+
+        @media (max-width: 520px) {
+            .hero-shell {
+                padding: 5px 0 69px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.35rem, 11.4vw, 3.7rem);
+                line-height: 0.96;
+            }
+
+            .word-rotator {
+                width: 8.2ch;
+                flex-basis: 8.2ch;
+            }
+
+            .tag-row {
+                grid-template-columns: 1fr;
+            }
+
+            .tag {
+                min-height: 78px;
+            }
+
+            #name {
+                font-size: 0.95rem;
+            }
+
+            #jobtitle {
+                font-size: 0.88rem;
+                line-height: 1.5;
+            }
+        }
+
+        .hero-copy::before {
+            inset: -24px -12px;
+        }
+
+        .logogroup {
+            width: min(220px, 56vw);
+        }
+
+        .panel,
+        .testimonial-card,
+        .contact-card {
+            padding: 24px;
+            border-radius: 22px;
+        }
+
+        .tag-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .testimonial-header {
+            grid-template-columns: 1fr;
+            text-align: center;
+            justify-items: center;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .parallax>use,
+            .logogroup,
+            #logo,
+            .text-content {
+                animation: none !important;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-
-    <div class="insidenav">
-        <div class="navigation">
-            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-
-            <label for="navi-toggle" class="navigation__button">
-                <svg class="ham hamRotate ham7" viewBox="0 0 100 100" width="80"
-                    onclick="this.classList.toggle('active')">
-                    <path class="line top"
-                        d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013" />
-                    <path class="line middle" d="m 70,50 h -40" />
-                    <path class="line bottom"
-                        d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40" />
-                </svg>
-            </label>
-
-            <div class="navigation__background">&nbsp;</div>
-
-            <nav class="navigation__nav">
-                <ul class="navigation__list">
-                    <li class="navigation__item"><a href="https://www.jessearmenio.com/"
-                            class="navigation__link"><span>•</span>Home</a></li>
-                    <!--<li class="navigation__item"><a href="https://www.jessearmenio.com/about.html#2"
-                            class="navigation__link"><span>•</span>Education</a></li>
-                    <li class="navigation__item"><a href="https://www.jessearmenio.com/about.html#4"
-                            class="navigation__link"><span>•</span>Hard Skills</a>
-                    </li>
-                    <li class="navigation__item"><a href="https://www.jessearmenio.com/about.html#3"
-                            class="navigation__link"><span>•</span>Career History</a>
-                    </li>-->
-                    <li class="navigation__item"><a href="portfolio.html" class="navigation__link"><span>•</span>Web Dev
-                            Portfolio</a></li>
-                    <li class="navigation__item"><a href="mailto:jesse.armenio@gmail.com"
-                            class="navigation__link"><span>•</span>Contact Me</a></li>
-                    <li class="navigation__item"><a href="faq.html" class="navigation__link"><span>•</span>FAQ</a></li>
-                    <!--<li class="navigation__item"><a href="#" class="navigation__link"><span>•</span>FAQ</a></li>-->
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <!-- Header with full-height image -->
-    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-        <div class="w3-display-left w3-text-white" style="padding:48px">
-            <span class="w3-jumbo w3-hide-small">Lets start something that
-                <div class="wrapper">
-                    <div class="banner-text">
-                        <ul class="text-content">
-                            <li class="content">evolves</li>
-                            <li class="content">innovates</li>
-                            <li class="content">enhances</li>
-                            <li class="content">matters.</li>
-                        </ul>
-                    </div>
-                </div>
-            </span><br>
-            <span class="w3-xxlarge w3-hide-large w3-hide-medium">Lets start something </br> that
-                <div class="wrapper2">
-                    <div class="banner-text2">
-                        <ul class="text-content">
-                            <li class="content2">evolves</li>
-                            <li class="content2">innovates</li>
-                            <li class="content2">enhances</li>
-                            <li class="content2">matters.</li>
-                        </ul>
-                    </div>
-                </div>
-            </span>
-            <span class="w3-xxlarge w3-hide-small">Jesse Armenio</span><br>
-            <span class="w3-large w3-hide-small" id="jobtitle">Business Analyst / Project Manager</span>
-            <span class="w3-large w3-hide-large w3-hide-medium" id="jobtitle2">Business Analyst / PM</span>
-            <div class="buttoncontainer" id="learnbutton">
-                <a href="#bioportion">
-                    <div class="center">
-                        <button class="btn">
-                            <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-                                <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                            </svg>
-                            <span>Learn More</span>
-                        </button>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
-            <a href="https://www.facebook.com/JesseArmenio"><i class="fa fa-facebook-official w3-hover-opacity"
-                    id="top-social"></i></a>
-            <a href="https://www.instagram.com/jessearmenio/"><i class="fa fa-instagram w3-hover-opacity"
-                    id="top-social"></i></a>
-            <a href="https://www.linkedin.com/in/jessearmenio/"><i class="fa fa-linkedin w3-hover-opacity"
-                    id="top-social"></i></a>
-        </div>
-        <div class="logogroup">
-            <svg xmlns="http://www.w3.org/2000/svg" id="logo" style="text-align:center" viewBox="0 0 1255 1234">
-                <g>
-                    <a xlink:href="https://www.jessearmenio.com/">
-                        <path id="p1" stroke="black" stroke-width="1" d="M 636.98,144.24
-                   C 640.48,146.10 642.02,149.73 643.38,153.24
-                     661.64,205.45 680.21,257.61 698.36,309.86
-                     684.04,309.83 669.70,309.86 655.38,309.88
-                     651.20,301.09 646.79,292.42 643.00,283.44
-                     641.19,279.83 639.11,274.62 634.04,276.07
-                     630.74,277.18 628.84,282.24 627.46,285.17
-                     624.00,293.60 619.69,301.64 615.89,309.91
-                     601.59,309.75 587.30,309.95 573.01,309.83
-                     577.40,295.96 582.62,282.36 587.25,268.57
-                     600.89,230.16 614.34,191.68 627.86,153.24
-                     628.99,150.27 630.21,147.39 632.70,145.27
-                     633.80,144.47 635.66,143.20 636.98,144.24 Z" />
-                    </a>
-                </g>
-                <g>
-                    <a xlink:href="https://www.jessearmenio.com/">
-                        <path id="p2" stroke="black" stroke-width="1" d="M 428.71,336.61
-                   C 569.14,336.56 709.57,336.62 849.99,336.57
-                     871.76,338.24 891.15,354.61 896.77,375.69
-                     899.29,383.79 898.76,391.73 898.71,400.08
-                     898.73,468.01 898.71,535.95 898.71,603.87
-                     898.66,608.34 899.10,613.42 897.78,617.70
-                     896.24,622.74 893.54,627.46 890.24,631.55
-                     884.06,639.50 873.71,644.17 863.74,644.38
-                     854.71,644.66 845.66,644.37 836.62,644.54
-                     831.73,630.95 827.35,617.11 822.89,603.36
-                     831.61,603.08 840.45,603.77 849.12,602.98
-                     853.76,602.73 857.51,598.50 857.51,593.93
-                     857.52,528.07 857.49,462.19 857.52,396.33
-                     857.40,390.80 858.49,386.14 854.80,381.45
-                     851.58,376.75 846.66,375.80 841.27,375.79
-                     703.34,375.83 565.39,375.80 427.46,375.80
-                     424.05,375.94 420.89,376.04 417.95,378.00
-                     413.47,380.94 411.40,386.04 411.49,391.27
-                     411.43,456.71 411.50,522.27 411.45,587.71
-                     411.25,594.92 415.83,602.02 423.35,602.92
-                     431.60,603.80 440.04,603.03 448.34,603.37
-                     443.91,617.14 439.44,630.92 434.70,644.56
-                     423.76,644.58 413.43,644.28 403.47,639.17
-                     384.68,630.69 372.18,610.70 372.51,590.12
-                     372.54,527.19 372.50,464.26 372.54,401.33
-                     372.55,393.25 371.86,385.80 374.02,377.90
-                     376.48,367.57 382.11,358.34 389.75,351.02
-                     400.39,341.38 414.35,336.24 428.71,336.61 Z" />
-                    </a>
-                </g>
-                <g>
-                    <a xlink:href="https://www.jessearmenio.com/">
-                        <path id="p3" stroke="black" stroke-width="1" d="M 545.64,400.37
-                   C 559.80,399.94 574.09,400.38 588.27,400.17
-                     584.41,413.81 579.62,427.24 575.27,440.74
-                     575.08,441.54 574.88,442.33 574.67,443.13
-                     569.71,457.69 565.21,472.43 560.27,487.01
-                     560.08,487.80 559.88,488.59 559.67,489.39
-                     554.70,503.95 550.26,518.71 545.29,533.27
-                     545.08,534.06 544.88,534.86 544.66,535.65
-                     537.14,558.40 529.77,581.21 522.49,604.03
-                     559.99,604.37 597.50,604.07 635.00,604.18
-                     672.89,604.08 710.81,604.36 748.70,604.05
-                     736.12,564.51 723.19,525.08 710.41,485.62
-                     701.34,457.13 691.73,428.76 682.95,400.19
-                     697.21,400.21 711.49,400.23 725.75,400.18
-                     733.60,422.32 740.28,444.94 747.75,467.22
-                     758.98,502.23 770.45,537.15 781.69,572.14
-                     797.99,622.75 814.94,673.26 831.46,723.82
-                     833.34,730.01 833.19,737.26 830.61,743.24
-                     827.86,749.44 822.05,754.34 814.99,754.05
-                     807.49,754.33 801.49,750.03 797.09,744.31
-                     793.21,739.56 792.06,734.26 790.16,728.60
-                     783.14,706.99 775.85,685.48 768.77,663.88
-                     766.66,657.77 764.86,651.52 762.48,645.52
-                     677.88,645.61 593.24,645.37 508.64,645.63
-                     499.56,672.10 490.99,698.77 482.12,725.31
-                     479.74,732.10 478.36,739.61 473.59,745.09
-                     469.20,750.40 463.40,754.30 456.25,754.07
-                     448.51,754.34 442.31,748.49 439.96,741.48
-                     437.56,734.54 438.19,727.55 440.75,720.76
-                     475.31,616.94 508.72,512.79 542.46,408.70
-                     543.34,405.92 544.18,402.87 545.64,400.37 Z" />
-                    </a>
-                </g>
-                <g>
-                    <a xlink:href="https://www.jessearmenio.com/">
-                        <path id="p4" stroke="black" stroke-width="1" d="M 615.54,675.30
-                   C 628.60,674.90 641.60,675.06 654.67,675.27
-                     654.66,801.50 654.67,927.74 654.66,1053.96
-                     654.74,1061.85 655.34,1069.18 652.84,1076.83
-                     649.67,1086.58 643.98,1095.92 635.99,1102.46
-                     626.79,1110.30 614.61,1115.11 602.50,1115.10
-                     528.31,1115.03 454.14,1115.19 379.96,1115.08
-                     372.95,1115.20 365.95,1111.39 360.51,1107.24
-                     352.06,1101.04 347.19,1090.30 346.96,1079.94
-                     346.77,1070.99 346.96,1062.03 346.86,1053.06
-                     360.46,1048.22 374.26,1043.77 388.01,1039.37
-                     388.14,1046.75 387.98,1054.13 388.06,1061.52
-                     388.29,1065.25 388.18,1068.73 391.16,1071.44
-                     395.12,1075.09 400.04,1073.92 405.00,1074.11
-                     470.43,1074.06 535.90,1074.09 601.33,1074.09
-                     605.89,1074.18 610.25,1071.85 612.99,1068.25
-                     615.20,1065.17 615.48,1061.40 615.56,1057.73
-                     615.51,930.25 615.56,802.78 615.54,675.30 Z" />
-                    </a>
-                </g>
-            </svg>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <div class="w3-container" style="padding:128px 16px" id="about">
-        <h3 class="w3-center">ABOUT THE MAN</h3>
-        <p class="w3-center w3-large">Key Career Highlights</p>
-        <div class="w3-row-padding w3-center" style="margin-top:64px">
-            <div class="w3-quarter" id="highlights">
-                <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center" id="hightlight-icon"></i>
-                <p class="w3-large">Technical</p>
-                <p>My technical aspect allows me to understand developers and prevent possible roadblocks beforehand.
-                    Additionally, I have a demonstrated history in HTML, CSS (SCSS), and SQL.</p>
-            </div>
-            <div class="w3-quarter" id="highlights">
-                <i class="fa fa-bar-chart w3-margin-bottom w3-jumbo" id="hightlight-icon"></i>
-                <p class="w3-large">Reporting</p>
-                <p>Reports are a part of every business; my experience includes high-volume YSR and Power BI
-                    Reporting, Azure DevOps, and application enhancement delivery. </p>
-            </div>
-            <div class="w3-quarter" id="highlights">
-                <i class="fa fa-tasks p w3-margin-bottom w3-jumbo" id="hightlight-icon"></i>
-                <p class="w3-large">Design</p>
-                <p>I have experience managing integration and Implementation teams before, during, and after design,
-                    conversions, and business testing.</p>
-            </div>
-            <div class="w3-quarter" id="highlights">
-                <i class="fa fa-cog w3-margin-bottom w3-jumbo" id="hightlight-icon"></i>
-                <p class="w3-large">Build</p>
-                <p>Build can be an active part of managing your design plan, team, and resources.
-                    Therefore, adjusting design and change control during the build stage is crucial.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64" id="promo-container">
-        <div class="w3-quarter" id="promo">
-            <span class="w3-xxlarge">2000+</span>
-            <br>Reports Implemented
-        </div>
-        <div class="w3-quarter" id="promo">
-            <span class="w3-xxlarge">3+</span>
-            <br>Years Leading Dev. teams
-        </div>
-        <div class="w3-quarter" id="promo">
-            <span class="w3-xxlarge">50+</span>
-            <br>Happy Clients
-        </div>
-        <div class="w3-quarter" id="promo">
-            <span class="w3-xxlarge">45+</span>
-            <br>PM Training Hours
-        </div>
-    </div>
-    <!-- Promo -->
-    <div class="w3-container w3-light-grey" id="middlebio">
-        <div class="w3-row-padding" id="bioportion">
-            <div class="w3-col m6">
-                <h3>Client Focused <i class="fa fa-check w3-margin-bottom w3-xlarge"></i>
-                </h3>
-                <h3>Result Driven <i class="fa fa-check w3-margin-bottom w3-xlarge"></i>
-                </h3>
-                <h3>Back-End SQL Design <i class="fa fa-check w3-margin-bottom w3-xlarge"></i></h3>
-                <h3>Team Management Experience <i class="fa fa-check w3-margin-bottom w3-xlarge"></i>
-
-                </h3>
-                <p id="mainbio">You made it! Welcome to my website, which is fully coded by me, about me, and allows you
-                    to connect
-                    with me.
-                    Enough of using the word me... Who is Jesse? Thanks for asking! I'm an IT Business Analyst with WCI
-                    Data Solutions out
-                    of Dallas, TX
-                    holding a BSBA in Management Information Systems from Oklahoma State University. Feel free to look
-                    around,
-                    play with some hover animations, or dive into what I've done in my career thus far!</p>
-                <p><a href="#work" class="w3-button w3-black" id="whatiworkbutton"><i class="fa fa-th"> </i> What I work
-                        with</a></p>
-            </div>
-            <div class="w3-col m6">
-                <img class="w3-image w3-round-large" id="bodyavatar"
-                    src="https://github.com/jessearmenio/JesseArmenio.com-V2/blob/main/croppedbody.jpg?raw=true"
-                    alt="Secondary Avatar" width="700" height="394">
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Skills -->
-    <div class="w3-container w3-light" id="skillcontainer">
-        <div class="w3-row-padding" id="skill-rows">
-            <div class="w3-col m6">
-                <h3>Hard Skills</h3>
-                <p id="passions">My passions include business intelligence solutions, HTML5/SCSS, network system design,
-                    agile development, data analytics, and project management. My Project Manager experience
-                    includes leading stakeholder and SCRUM meetings in addition to a demonstrated history in
-                    gathering project requirements, developing project lifecycle, and client scope validation.
-                    I am currently a Business Analyst in the process of working towards Azure DevOps, AWS, and CAPM
-                    certifications.</p>
-            </div>
-            <div class="w3-col m6" id="skills">
-                <p class="w3-wide" id="db-title"><i class="fa fa-database w3-margin-right"></i>Database / Supply Chain
-                </p>
-                <div class="w3-white" id="box">
-                    <div class="w3-container w3-dark-grey w3-center" id="database-bar">90%</div>
-                </div>
-                <p class="w3-wide" id="cs-title"><i class="fa fa-sitemap w3-margin-right"></i>Computer Science</p>
-                <div class="w3-white" id="box">
-                    <div class="w3-container w3-dark-grey w3-center" id="CS-bar">85%</div>
-                </div>
-                <p class="w3-wide" id="ns-title"><i class="fa fa-users w3-margin-right"></i>Network System Design</p>
-                <div class="w3-white" id="box">
-                    <div class="w3-container w3-dark-grey w3-center" id="Network-bar">75%</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Work -->
-    <div class="w3-container" id="work">
-        <span class="w3-center w3-hide-small">
-            <h3>Managing Design, Build, Go-Live, and Support.</h3>
-        </span>
-        <span class="w3-center w3-hide-large w3-hide-medium">
-            <h3>Managing Design, Build,<br /> Go-Live, and Support.</h3>
-        </span>
-        <p class="w3-center w3-large">What I currently work with as a BA:</p>
-
-        <div class="w3-row-padding" style="margin-top:64px">
-            <div class="w3-col l3 m6">
-                <a href="https://powerbi.microsoft.com/en-us/"><span class="devicons devicons-angular"><svg width="24"
-                            id="work2" height="24" viewBox="0 0 1600 1600" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="200" y="0" width="1200"
-                                height="1600">
-                                <path
-                                    d="M1333.25 0C1370.11 0 1400 29.8849 1400 66.75V1533.25C1400 1570.11 1370.11 1600 1333.25 1600H266.667C229.848 1600 200 1570.15 200 1533.33V866.667C200 829.848 229.848 800 266.667 800H525V466.667C525 429.848 554.848 400 591.667 400H850V66.75C850 29.885 879.885 0 916.75 0H1333.25Z"
-                                    fill="white" />
-                            </mask>
-                            <g mask="url(#mask0)">
-                                <path
-                                    d="M1400 66.75L1400 1533.25C1400 1570.11 1370.11 1600 1333.25 1600H916.75C879.885 1600 850 1570.11 850 1533.25L850 66.75C850 29.885 879.885 0 916.75 0H1333.25C1370.12 0 1400 29.8849 1400 66.75Z"
-                                    fill="url(#paint0_linear)" />
-                                <g filter="url(#filter0_dd)">
-                                    <path
-                                        d="M1075 466.667V1600H525V466.667C525 429.848 554.848 400 591.667 400H1008.33C1045.15 400 1075 429.848 1075 466.667Z"
-                                        fill="url(#paint1_linear)" />
-                                </g>
-                                <path
-                                    d="M200 866.667V1533.33C200 1570.15 229.848 1600 266.667 1600H750V866.667C750 829.848 720.152 800 683.333 800H266.667C229.848 800 200 829.848 200 866.667Z"
-                                    fill="url(#paint2_linear)" />
-                            </g>
-                            <defs>
-                                <filter id="filter0_dd" x="519.667" y="396" width="1000" height="1210.67"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                    <feColorMatrix in="SourceAlpha" type="matrix"
-                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                                    <feOffset dy="0.253333" />
-                                    <feGaussianBlur stdDeviation="0.253333" />
-                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
-                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                                    <feColorMatrix in="SourceAlpha" type="matrix"
-                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                                    <feOffset dy="1.33333" />
-                                    <feGaussianBlur stdDeviation="2.66667" />
-                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0" />
-                                    <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow" />
-                                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape" />
-                                </filter>
-                                <linearGradient id="paint0_linear" x1="758.333" y1="-1.49632e-05" x2="1447.82"
-                                    y2="1507.15" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#E6AD10" />
-                                    <stop offset="1" stop-color="#C87E0E" />
-                                </linearGradient>
-                                <linearGradient id="paint1_linear" x1="524.955" y1="400" x2="1105.79" y2="1561.67"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#F6D751" />
-                                    <stop offset="1" stop-color="#E6AD10" />
-                                </linearGradient>
-                                <linearGradient id="paint2_linear" x1="199.955" y1="800" x2="519.784" y2="1581.68"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#F9E589" />
-                                    <stop offset="1" stop-color="#F6D751" />
-                                </linearGradient>
-                            </defs>
-                        </svg></a><br />
-                <p id="PB">Power BI</p>
-                </span style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Power BI">
-            </div>
-            <div class="w3-col l3 m6">
-                <span class="devicons devicons-codepen"><a href="https://azure.microsoft.com/en-us/"><svg
-                            xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" id="work2"
-                            viewBox="0 0 48 48" style=" fill:#000000;">
-                            <path fill="#035bda"
-                                d="M46 40L29.317 10.852 22.808 23.96 34.267 37.24 13 39.655zM13.092 18.182L2 36.896 11.442 35.947 28.033 5.678z">
-                            </path>
-                        </svg></a>
-                    <p id="AZ">Azure</p>
-                </span style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Azure DevOps">
-            </div>
-            <div class="w3-col l3 m6">
-                <span class="devicons devicons-gulp"><a
-                        href="https://www.microsoft.com/en-us/sql-server/sql-server-2019"><svg version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                            y="0px" width="24" height="24" viewBox="0 0 548.29 548.291" id="work2"
-                            style="enable-background:new 0 0 548.29 548.291;" xml:space="preserve">
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+    <main class="page-shell">
+        <!-- HERO -->
+        <section class="section hero" id="home">
+            <div class="hero-shell">
+                <div class="hero-center" id="heroContent">
+                    <div class="logogroup">
+                        <span id="hoverHint">* hover me *</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 1255 1234"
+                            aria-label="Jesse Armenio logo">
                             <g>
-                                <g>
-                                    <path d="M276.043,244.216c-24.575,0-38.741,24.087-38.741,53.862c-0.241,30.228,14.407,53.382,38.5,53.382
-                   c24.323,0,38.512-22.92,38.512-54.091C314.313,268.303,300.604,244.216,276.043,244.216z" />
-                                    <path d="M486.2,196.116h-13.164V132.59c0-0.399-0.064-0.795-0.116-1.2c-0.021-2.52-0.824-4.997-2.551-6.96L364.656,3.677
-                   c-0.031-0.031-0.064-0.044-0.085-0.075c-0.629-0.704-1.364-1.29-2.141-1.796c-0.231-0.154-0.462-0.283-0.704-0.419
-                   c-0.672-0.365-1.386-0.672-2.121-0.893c-0.199-0.052-0.377-0.134-0.576-0.186C358.229,0.118,357.4,0,356.562,0H96.757
-                   C84.893,0,75.256,9.649,75.256,21.502v174.613H62.093c-16.967,0-30.733,13.756-30.733,30.733v159.812
-                   c0,16.961,13.766,30.731,30.733,30.731h13.163V526.79c0,11.854,9.637,21.501,21.501,21.501h354.777
-                   c11.853,0,21.502-9.647,21.502-21.501V417.392H486.2c16.977,0,30.729-13.771,30.729-30.731V226.849
-                   C516.93,209.872,503.177,196.116,486.2,196.116z M96.757,21.502h249.053v110.006c0,5.943,4.818,10.751,10.751,10.751h94.973
-                   v53.861H96.757V21.502z M353.033,376.96l-10.394,27.884c-22.666-6.619-41.565-13.479-62.828-22.445
-                   c-3.527-1.418-7.317-2.132-11.094-2.362c-35.909-2.352-69.449-28.819-69.449-80.778c0-47.711,30.236-83.623,77.71-83.623
-                   c48.675,0,75.351,36.854,75.351,80.317c0,36.142-16.766,61.638-37.785,71.091v0.945
-                   C326.828,371.528,340.519,374.367,353.033,376.96z M72.912,370.116l7.328-29.764c9.69,4.96,24.554,9.915,39.917,9.915
-                   c16.525,0,25.271-6.84,25.271-17.228c0-9.928-7.56-15.597-26.691-22.442c-26.457-9.217-43.696-23.858-43.696-47.014
-                   c0-27.163,22.68-47.948,60.231-47.948c17.954,0,31.184,3.791,40.623,8.03l-8.021,29.061c-6.375-3.076-17.711-7.564-33.3-7.564
-                   c-15.599,0-23.163,7.079-23.163,15.357c0,10.15,8.977,14.646,29.533,22.447c28.108,10.394,41.332,25.023,41.332,47.464
-                   c0,26.699-20.557,49.365-64.253,49.365C99.844,379.785,81.899,375.06,72.912,370.116z M451.534,520.962H96.757v-103.57h354.777
-                   V520.962z M475.387,377.428h-99.455V218.231h36.158v128.97h63.297V377.428z" />
+                                <path id="p1" d="M 636.98,144.24
+                                C 640.48,146.10 642.02,149.73 643.38,153.24
+                                  661.64,205.45 680.21,257.61 698.36,309.86
+                                  684.04,309.83 669.70,309.86 655.38,309.88
+                                  651.20,301.09 646.79,292.42 643.00,283.44
+                                  641.19,279.83 639.11,274.62 634.04,276.07
+                                  630.74,277.18 628.84,282.24 627.46,285.17
+                                  624.00,293.60 619.69,301.64 615.89,309.91
+                                  601.59,309.75 587.30,309.95 573.01,309.83
+                                  577.40,295.96 582.62,282.36 587.25,268.57
+                                  600.89,230.16 614.34,191.68 627.86,153.24
+                                  628.99,150.27 630.21,147.39 632.70,145.27
+                                  633.80,144.47 635.66,143.20 636.98,144.24 Z" />
+                            </g>
+                            <g>
+                                <path id="p2" d="M 428.71,336.61
+                                C 569.14,336.56 709.57,336.62 849.99,336.57
+                                  871.76,338.24 891.15,354.61 896.77,375.69
+                                  899.29,383.79 898.76,391.73 898.71,400.08
+                                  898.73,468.01 898.71,535.95 898.71,603.87
+                                  898.66,608.34 899.10,613.42 897.78,617.70
+                                  896.24,622.74 893.54,627.46 890.24,631.55
+                                  884.06,639.50 873.71,644.17 863.74,644.38
+                                  854.71,644.66 845.66,644.37 836.62,644.54
+                                  831.73,630.95 827.35,617.11 822.89,603.36
+                                  831.61,603.08 840.45,603.77 849.12,602.98
+                                  853.76,602.73 857.51,598.50 857.51,593.93
+                                  857.52,528.07 857.49,462.19 857.52,396.33
+                                  857.40,390.80 858.49,386.14 854.80,381.45
+                                  851.58,376.75 846.66,375.80 841.27,375.79
+                                  703.34,375.83 565.39,375.80 427.46,375.80
+                                  424.05,375.94 420.89,376.04 417.95,378.00
+                                  413.47,380.94 411.40,386.04 411.49,391.27
+                                  411.43,456.71 411.50,522.27 411.45,587.71
+                                  411.25,594.92 415.83,602.02 423.35,602.92
+                                  431.60,603.80 440.04,603.03 448.34,603.37
+                                  443.91,617.14 439.44,630.92 434.70,644.56
+                                  423.76,644.58 413.43,644.28 403.47,639.17
+                                  384.68,630.69 372.18,610.70 372.51,590.12
+                                  372.54,527.19 372.50,464.26 372.54,401.33
+                                  372.55,393.25 371.86,385.80 374.02,377.90
+                                  376.48,367.57 382.11,358.34 389.75,351.02
+                                  400.39,341.38 414.35,336.24 428.71,336.61 Z" />
+                            </g>
+                            <g>
+                                <path id="p3" d="M 545.64,400.37
+                                C 559.80,399.94 574.09,400.38 588.27,400.17
+                                  584.41,413.81 579.62,427.24 575.27,440.74
+                                  575.08,441.54 574.88,442.33 574.67,443.13
+                                  569.71,457.69 565.21,472.43 560.27,487.01
+                                  560.08,487.80 559.88,488.59 559.67,489.39
+                                  554.70,503.95 550.26,518.71 545.29,533.27
+                                  545.08,534.06 544.88,534.86 544.66,535.65
+                                  537.14,558.40 529.77,581.21 522.49,604.03
+                                  559.99,604.37 597.50,604.07 635.00,604.18
+                                  672.89,604.08 710.81,604.36 748.70,604.05
+                                  736.12,564.51 723.19,525.08 710.41,485.62
+                                  701.34,457.13 691.73,428.76 682.95,400.19
+                                  697.21,400.21 711.49,400.23 725.75,400.18
+                                  733.60,422.32 740.28,444.94 747.75,467.22
+                                  758.98,502.23 770.45,537.15 781.69,572.14
+                                  797.99,622.75 814.94,673.26 831.46,723.82
+                                  833.34,730.01 833.19,737.26 830.61,743.24
+                                  827.86,749.44 822.05,754.34 814.99,754.05
+                                  807.49,754.33 801.49,750.03 797.09,744.31
+                                  793.21,739.56 792.06,734.26 790.16,728.60
+                                  783.14,706.99 775.85,685.48 768.77,663.88
+                                  766.66,657.77 764.86,651.52 762.48,645.52
+                                  677.88,645.61 593.24,645.37 508.64,645.63
+                                  499.56,672.10 490.99,698.77 482.12,725.31
+                                  479.74,732.10 478.36,739.61 473.59,745.09
+                                  469.20,750.40 463.40,754.30 456.25,754.07
+                                  448.51,754.34 442.31,748.49 439.96,741.48
+                                  437.56,734.54 438.19,727.55 440.75,720.76
+                                  475.31,616.94 508.72,512.79 542.46,408.70
+                                  543.34,405.92 544.18,402.87 545.64,400.37 Z" />
+                            </g>
+                            <g>
+                                <path id="p4" d="M 615.54,675.30
+                                C 628.60,674.90 641.60,675.06 654.67,675.27
+                                  654.66,801.50 654.67,927.74 654.66,1053.96
+                                  654.74,1061.85 655.34,1069.18 652.84,1076.83
+                                  649.67,1086.58 643.98,1095.92 635.99,1102.46
+                                  626.79,1110.30 614.61,1115.11 602.50,1115.10
+                                  528.31,1115.03 454.14,1115.19 379.96,1115.08
+                                  372.95,1115.20 365.95,1111.39 360.51,1107.24
+                                  352.06,1101.04 347.19,1090.30 346.96,1079.94
+                                  346.77,1070.99 346.96,1062.03 346.86,1053.06
+                                  360.46,1048.22 374.26,1043.77 388.01,1039.37
+                                  388.14,1046.75 387.98,1054.13 388.06,1061.52
+                                  388.29,1065.25 388.18,1068.73 391.16,1071.44
+                                  395.12,1075.09 400.04,1073.92 405.00,1074.11
+                                  470.43,1074.06 535.90,1074.09 601.33,1074.09
+                                  605.89,1074.18 610.25,1071.85 612.99,1068.25
+                                  615.20,1065.17 615.48,1061.40 615.56,1057.73
+                                  615.51,930.25 615.56,802.78 615.54,675.30 Z" />
+                            </g>
+                            <g id="rocketOverlay" aria-hidden="true">
+                                <!-- MAIN BODY (p1) -->
+                                <path id="rocketBody" d="M 636.98,144.24
+        C 640.48,146.10 642.02,149.73 643.38,153.24
+          661.64,205.45 680.21,257.61 698.36,309.86
+          684.04,309.83 669.70,309.86 655.38,309.88
+          651.20,301.09 646.79,292.42 643.00,283.44
+          641.19,279.83 639.11,274.62 634.04,276.07
+          630.74,277.18 628.84,282.24 627.46,285.17
+          624.00,293.60 619.69,301.64 615.89,309.91
+          601.59,309.75 587.30,309.95 573.01,309.83
+          577.40,295.96 582.62,282.36 587.25,268.57
+          600.89,230.16 614.34,191.68 627.86,153.24
+          628.99,150.27 630.21,147.39 632.70,145.27
+          633.80,144.47 635.66,143.20 636.98,144.24 Z" />
+
+                                <!-- WINGS / STRUCTURE (p3) -->
+                                <path id="rocketWings" d="M 545.64,400.37
+        C 559.80,399.94 574.09,400.38 588.27,400.17
+          584.41,413.81 579.62,427.24 575.27,440.74
+          575.08,441.54 574.88,442.33 574.67,443.13
+          569.71,457.69 565.21,472.43 560.27,487.01
+          560.08,487.80 559.88,488.59 559.67,489.39
+          554.70,503.95 550.26,518.71 545.29,533.27
+          545.08,534.06 544.88,534.86 544.66,535.65
+          537.14,558.40 529.77,581.21 522.49,604.03
+          559.99,604.37 597.50,604.07 635.00,604.18
+          672.89,604.08 710.81,604.36 748.70,604.05
+          736.12,564.51 723.19,525.08 710.41,485.62
+          701.34,457.13 691.73,428.76 682.95,400.19
+          697.21,400.21 711.49,400.23 725.75,400.18
+          733.60,422.32 740.28,444.94 747.75,467.22
+          758.98,502.23 770.45,537.15 781.69,572.14
+          797.99,622.75 814.94,673.26 831.46,723.82
+          833.34,730.01 833.19,737.26 830.61,743.24
+          827.86,749.44 822.05,754.34 814.99,754.05
+          807.49,754.33 801.49,750.03 797.09,744.31
+          793.21,739.56 792.06,734.26 790.16,728.60
+          783.14,706.99 775.85,685.48 768.77,663.88
+          766.66,657.77 764.86,651.52 762.48,645.52
+          677.88,645.61 593.24,645.37 508.64,645.63
+          499.56,672.10 490.99,698.77 482.12,725.31
+          479.74,732.10 478.36,739.61 473.59,745.09
+          469.20,750.40 463.40,754.30 456.25,754.07
+          448.51,754.34 442.31,748.49 439.96,741.48
+          437.56,734.54 438.19,727.55 440.75,720.76
+          475.31,616.94 508.72,512.79 542.46,408.70
+          543.34,405.92 544.18,402.87 545.64,400.37 Z" />
+                                <!-- Ignition -->
+                                <g id="rocketGlow">
+                                    <circle id="glowCore" cx="635" cy="720" r="18" />
+                                    <circle id="glowAura" cx="635" cy="720" r="42" />
+                                </g>
+                                <!-- FLAMES -->
+                                <g id="rocketFlames">
+                                    <path class="flame flame-main"
+                                        d="M 635 740 C 620 780, 630 820, 635 850 C 645 820, 655 780, 635 740 Z" />
+                                    <path class="flame flame-left"
+                                        d="M 600 730 C 570 760, 580 800, 610 820 C 615 780, 620 750, 600 730 Z" />
+                                    <path class="flame flame-right"
+                                        d="M 670 730 C 700 760, 690 800, 660 820 C 655 780, 650 750, 670 730 Z" />
+                                </g>
+
+                                <!-- SMOKE -->
+                                <g id="rocketSmoke">
+                                    <circle class="smoke smoke-1" cx="600" cy="770" r="14" />
+                                    <circle class="smoke smoke-2" cx="630" cy="800" r="18" />
+                                    <circle class="smoke smoke-3" cx="660" cy="820" r="20" />
+                                    <circle class="smoke smoke-4" cx="690" cy="790" r="16" />
                                 </g>
                             </g>
-                        </svg></a>
-                    <p id="SQL">PostGreSQL / SQL Server</p>
-                </span style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="SQL / SQL Server">
-            </div>
-            <div class="w3-col l3 m6">
-                <span class="devicons devicons-javascript_badge">
-                    <a href="https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration"><svg
-                            xmlns="http://www.w3.org/2000/svg" id="work2" x="0px" y="0px" width="24" height="24"
-                            viewBox="0 0 48 48" style=" fill:#000000;">
-                            <path fill="#1a237e"
-                                d="M29.5,33.3v-2c4,0,7.3-3.3,7.3-7.3c0-4-3.3-7.3-7.3-7.3v-2c5.1,0,9.3,4.2,9.3,9.3 S34.7,33.3,29.5,33.3z">
-                            </path>
-                            <path fill="#0d47a1"
-                                d="M41 24c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4S41 21.8 41 24zM32 16c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4S32 13.8 32 16zM32 32c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4S32 29.8 32 32z">
-                            </path>
-                            <path fill="#1e88e5" d="M27,42L6,38V10l21-4V42z"></path>
-                            <path fill="#fff"
-                                d="M20.5,29.7c-0.3,0.6-0.7,1-1.3,1.3s-1.1,0.6-1.8,0.7C16.7,31.9,16,32,15.2,32 c-0.8,0-1.6-0.1-2.3-0.2c-0.7-0.1-1.3-0.3-1.9-0.6V28c0.6,0.5,1.2,0.9,1.9,1.1s1.4,0.4,2.1,0.4c0.4,0,0.8,0,1.1-0.1 c0.3-0.1,0.6-0.2,0.8-0.3c0.2-0.1,0.4-0.3,0.5-0.5c0.1-0.2,0.2-0.4,0.2-0.6c0-0.3-0.1-0.5-0.2-0.8c-0.2-0.2-0.4-0.4-0.7-0.6 c-0.3-0.2-0.6-0.4-1-0.5c-0.4-0.2-0.8-0.4-1.3-0.5c-1.1-0.5-2-1-2.5-1.7c-0.6-0.7-0.8-1.5-0.8-2.5c0-0.8,0.2-1.4,0.5-1.9 s0.7-1,1.2-1.3c0.5-0.4,1.1-0.6,1.8-0.8c0.7-0.2,1.4-0.3,2.2-0.3c0.8,0,1.4,0,2,0.1c0.6,0.1,1.1,0.2,1.6,0.4v3 c-0.2-0.2-0.5-0.3-0.8-0.4c-0.3-0.1-0.6-0.2-0.9-0.3c-0.3-0.1-0.6-0.1-0.9-0.2s-0.6-0.1-0.9-0.1c-0.4,0-0.7,0-1,0.1 c-0.3,0.1-0.6,0.2-0.8,0.3c-0.2,0.1-0.4,0.3-0.5,0.5c-0.1,0.2-0.2,0.4-0.2,0.6c0,0.2,0.1,0.5,0.2,0.7c0.1,0.2,0.3,0.4,0.5,0.5 c0.2,0.2,0.5,0.3,0.9,0.5c0.3,0.2,0.7,0.3,1.1,0.5c0.6,0.2,1.1,0.5,1.6,0.8c0.5,0.3,0.9,0.6,1.2,0.9c0.3,0.3,0.6,0.7,0.8,1.2 c0.2,0.4,0.3,1,0.3,1.5C21,28.5,20.8,29.2,20.5,29.7z">
-                            </path>
-                        </svg></a>
-                    <p id="SP">Microsoft SharePoint</p>
-                </span style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Microsoft SharePoint">
-            </div>
-        </div>
-        <!--
-        <img src="https://github.com/jessearmenio/JesseArmenio.com-V2/blob/main/DSC_1501-Edit-Edit.PNG?raw=true"
-            class="w3-image w3-greyscale" id="implementation">
-        -->
-    </div>
-    <!-- Contact -->
-    <div class="w3-container w3-light-grey" id="contact">
-        <h3 class="w3-center">CONTACT</h3>
-        <p class="w3-center w3-large">Need a website built or have work inquiries? Let's Connect.</p>
-        <div id="contact-card">
-            <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Dallas, TX</p>
-            <!-- <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p> -->
-            <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: jesse.armenio@gmail.com</p>
-            <br>
-            <a href="mailto:jesse.armenio@gmail.com"><button class="w3-button w3-black" id="contactbutton"
-                    type="submit">
-                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
-                </button></a>
-            </p>
-            </form>
-        </div>
-    </div>
-    <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-32">
-        <a href="#home" class="w3-button w3-light-grey" id="up-box"><i class="fa fa-arrow-up w3-margin-right"
-                id="up-arrow"></i>To the top</a>
-        <div class="w3-xlarge w3-section">
-            <a href="https://www.facebook.com/JesseArmenio"><i class="fa fa-facebook-official" id="facebook"></i></a>
-            <a href="https://www.instagram.com/jessearmenio/"><i class="fa fa-instagram" id="instagram"></i></a>
-            <a href="https://www.linkedin.com/in/jessearmenio/"><i class="fa fa-linkedin" id="linkedin"></i></a>
-        </div>
-        <div class="footer">
-            <div id="footercontainer">
-                <!--   Copyright Information
-                    
-                    <div class="social-icons">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50"
-                            ><g> <a xlink:href="https://www.linkedin.com/in/jessearmenio/" >
-                            <path id="linkedin"
-                                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z">
-                             </path> </a></g> 
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 64 64"
-                            > <g><a xlink:href="https://github.com/jessearmenio">
-                            <path id="github"
-                                d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z">
-                            </path> </a></g>
-                        </svg>
-                    </div>  -->
-                <div class="copyright-text">
-                    <!-- Link back home via Copyright Info -->
-                    Made with <spanT class="heart">♥</spanT> by <a class="dev" title="See this website's code!"
-                        href="https://github.com/jessearmenio/JesseArmenio.com-V2">
-                        <h2>Jesse Armenio </h2>
-                    </a><br />
-                    Copyright &copy; 2022. All Rights Reserved. <br />
+                    </div>
+
+                    <div class="hero-copy">
+                        <p class="eyebrow">Senior IT Business Analyst</p>
+
+                        <h1 class="hero-title">
+                            <span class="hero-line hero-line-1">Let's start something</span>
+                            <span class="hero-line hero-line-2">
+                                <span class="hero-line-inner">
+                                    <span class="hero-title-static">that</span>
+                                    <span class="word-rotator">
+                                        <span id="rotating-word">evolves.</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </h1>
+
+                        <span id="name">Jesse Armenio</span>
+                        <span id="jobtitle">Systems Analysis • Reporting • Data Modeling • Software
+                            Implementation</span>
+
+                        <div class="buttoncontainer">
+                            <a href="#middlebio" class="hero-cta">Learn More</a>
+                            <a href="#contact" class="hero-cta secondary">Contact Me</a>
+                        </div>
+
+                        <div class="scroll-indicator">
+                            Scroll to explore
+                            <div class="scroll-line"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="privacy">
-                <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a> | <a
-                    href="https://www.jessearmenio.com/music.html">Music Website</a> | <a
-                    href="mailto:jesse.armenio@gmail.com">Contact</a>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <!--
+        <!-- ABOUT -->
+        <section class="section section-combo" id="about">
+            <div class="section-inner combo-inner">
+                <div class="grid-4 combo-metrics">
+                    <article class="card metric">
+                        <span class="metric-value">1,200+</span>
+                        <span class="metric-label">Legacy Reports Migrated</span>
+                    </article>
+
+                    <article class="card metric">
+                        <span class="metric-value">$55+ Billion</span>
+                        <span class="metric-label">Real Estate AUM Optimized</span>
+                    </article>
+
+                    <article class="card metric">
+                        <span class="metric-value">350+</span>
+                        <span class="metric-label">Stakeholders Supported</span>
+                    </article>
+
+                    <article class="card metric">
+                        <span class="metric-value">5+</span>
+                        <span class="metric-label">Years Experience</span>
+                    </article>
+                </div>
+
+                <div class="panel combo-about-panel">
+                    <h2 class="section-title">Core Expertise</h2>
+                    <p class="section-copy">
+                        Background in business intelligence, systems analysis, reporting delivery, and stakeholder
+                        support — with technical depth to bridge the gap between business needs and build
+                        execution.
+                    </p>
+
+                    <div class="divider">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+
+                    <div class="grid-4" style="margin-top: 34px;">
+                        <article class="card">
+                            <div class="icon-badge"><i class="fa fa-desktop"></i></div>
+                            <h3>Technical</h3>
+                            <p>
+                                Background in HTML/CSS, Power BI, SQL Server, and data warehousing and modeling allows
+                                me to bridge the gap between developers and the business.
+                            </p>
+                        </article>
+
+                        <article class="card">
+                            <div class="icon-badge"><i class="fa fa-chart-column"></i></div>
+                            <h3>Reporting</h3>
+                            <p>
+                                High-volume commerical SQL, Power BI, and Cognos custom reporting and functional
+                                enhancement delivery.
+                            </p>
+                        </article>
+
+                        <article class="card">
+                            <div class="icon-badge"><i class="fa fa-cog"></i></div>
+                            <h3>Build</h3>
+                            <p>
+                                Balancing project cost, time, and scope with change control and available resources in
+                                both the front and back-end.
+                            </p>
+                        </article>
+
+                        <article class="card">
+                            <div class="icon-badge"><i class="fa fa-headset"></i></div>
+                            <h3>Support</h3>
+                            <p>
+                                Leading integration and implementation design meetings during conversion planning, QA,
+                                and user acceptance testing.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- PROFILE + SUCCESS SKILLS -->
+        <section class="section section-combo" id="middlebio">
+            <div class="section-inner combo-inner">
+                <div class="bio-wrap">
+                    <div class="panel">
+                        <h2 class="section-title">Objective Focused.<br />Results Driven.</h2>
+
+                        <div class="tag-row">
+                            <div class="tag">Software Implementation<i class="fa fa-check"></i></div>
+                            <div class="tag">System Analysis<i class="fa fa-check"></i></div>
+                            <div class="tag">Data Modeling<i class="fa fa-check"></i></div>
+                            <div class="tag">Yardi Voyager<i class="fa fa-check"></i></div>
+                            <div class="tag">Power BI<i class="fa fa-check"></i></div>
+                            <div class="tag">SQL Server<i class="fa fa-check"></i></div>
+                        </div>
+
+                        <p class="bio-text">
+                            <strong>Welcome to my website!</strong>
+                            I’m a Senior IT Business Analyst based in the Dallas–Fort Worth Metroplex,
+                            specializing in systems analysis and tailored business intelligence solutions,
+                            with a focus on impactful stakeholder engagement and actionable, real-world insights.
+                            <br><br>
+                            I hold a <strong>Bachelor of Science in Business Administration (BSBA)</strong>
+                            in <strong>Management Information Systems (MIS)</strong> from <strong>Oklahoma State
+                                University</strong>.
+                            Feel free to explore my site to learn more about my career and accomplishments.
+                        </p>
+                    </div>
+
+                    <div>
+                        <img class="avatar" title="The Man in Question"
+                            src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/main/Cropped%20Avatar.jpg"
+                            alt="Secondary Avatar" width="550" height="700">
+                    </div>
+                </div>
+
+                <!--<div class="panel combo-skills-panel">
+                    <h2 class="section-title">Success Skills</h2>
+                    <ul class="skill-cloud">
+                        <li>Analytical Mindset</li>
+                        <li>Results Driven</li>
+                        <li>Adaptability</li>
+                        <li>Problem Solving</li>
+                        <li>Attention to Detail</li>
+                        <li>Interpersonal Skills</li>
+                    </ul>
+                </div>-->
+            </div>
+        </section>
+        <!-- TESTIMONIALS -->
+        <section class="section" id="testimonials">
+            <div class="section-inner">
+                <!-- <p class="eyebrow" style="text-align:center;">References</p> -->
+                <h2 class="section-title" style="text-align:center; margin-bottom: 24px;">Testimonials</h2>
+
+                <input class="testimonial-switch" type="radio" id="i1" name="images" checked>
+                <input class="testimonial-switch" type="radio" id="i2" name="images">
+
+                <div class="slides">
+                    <div class="slide" id="one">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/main/1517749863555-1.jpeg"
+                                    class="testimonial-avatar" alt="Seth Glickman">
+
+                                <div class="testimonial-meta">
+                                    <strong><a href="https://www.linkedin.com/in/seth-glickman-cpa/">Seth Glickman,
+                                            CPA</a></strong><br>
+                                    Director at <a href="https://www.one11advisors.com">One11 Advisors an Altus Group
+                                        Company</a><br>
+                                    <span style="color: var(--text-muted);">April 23, 2023, Seth managed Jesse
+                                        directly</span>
+                                </div>
+                            </div>
+
+                            <p class="testimonial-quote">
+                                <span class="quote-mark">"</span>
+                                I worked with Jesse on a large software implementation project.
+                                He is a self-starter and quick learner. He did a great job managing a team of developers
+                                to keep
+                                the project moving.
+                                Would be happy to work with him again.
+                                <span class="quote-mark">"</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="slide" id="two">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/main/testimonialpic1_sqaured2.jpg"
+                                    class="testimonial-avatar" alt="Mitchell Sims">
+
+                                <div class="testimonial-meta">
+                                    <strong><a href="https://www.linkedin.com/in/mitchellsims/">Mitchell
+                                            Sims</a></strong><br>
+                                    President at <a href="https://www.linkedin.com/company/nessocompanies">Nesso
+                                        Companies</a><br>
+                                    <span style="color: var(--text-muted);">August 18, 2021, Mitchell managed Jesse
+                                        directly</span>
+                                </div>
+                            </div>
+
+                            <p class="testimonial-quote">
+                                <span class="quote-mark">"</span>
+                                Jesse has an eye for detail, taking excellent notes for client follow up.
+                                He keeps everyone informed by communicating the project action items with status.
+                                Jess is personable & relatable helping develop relationships with key stakeholders.
+                                His positive attitude helped create a great work environment.
+                                <span class="quote-mark">"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dots">
+                    <label for="i1" class="dot-label">‹</label>
+                    <label for="i2" class="dot-label">›</label>
+                </div>
+            </div>
+        </section>
+        <!-- CERTIFICATIONS + FUNCTIONAL SKILLS -->
+        <section class="section section-combo" id="certifications">
+            <div class="section-inner combo-inner">
+                <div class="panel">
+                    <h2 class="section-title" id="cert_title">Managing Design, Build, Go-Live, and Support.</h2>
+
+                    <div class="cert-grid">
+                        <a class="cert-card"
+                            href="https://www.credly.com/badges/0207a785-c664-4620-849c-8adeede5280a/public_url">
+                            <img
+                                src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/72da1bd8176bfd94c50ec22d3ede495968f88246/azure-data-engineer-associate-600x600-2.png">
+                        </a>
+
+                        <a class="cert-card"
+                            href="https://www.credly.com/badges/270920e3-d97d-4e41-a953-ca658c3a7227/public_url">
+                            <img
+                                src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/main/snowpro-core-certification.png">
+                        </a>
+
+                        <a class="cert-card" href="https://www.credly.com/badges/496916a2-653d-4d92-8a68-14a9e79c1fad">
+                            <img
+                                src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/main/image.png">
+                        </a>
+
+                        <a class="cert-card"
+                            href="https://www.credly.com/badges/0f03efcf-e3c5-46dc-b4d4-807acf8433ef/public_url">
+                            <img
+                                src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/72da1bd8176bfd94c50ec22d3ede495968f88246/image.png">
+                        </a>
+
+                        <a class="cert-card" href="https://www.yardi.com/products/yardi-voyager/">
+                            <img id="yardiimg"
+                                src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/main/yardi-logo-custom.png">
+                        </a>
+
+                        <a class="cert-card"
+                            href="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/refs/heads/main/Official_Certification_Issued_Lean_Six_Sigma_Green_Belt_Certification_Standard.png">
+                            <img
+                                src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/refs/heads/main/CSSC-GB-Final-v2.png">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="panel combo-skills-panel">
+                    <h2 class="section-title">Functional Skills</h2>
+
+                    <ul class="skill-cloud">
+                        <li>Microsoft Excel</li>
+                        <li>Software Implementation</li>
+                        <li>HTML + CSS</li>
+                        <li>SQL Server + PostgreSQL</li>
+                        <li>AWS</li>
+                        <li>JavaScript</li>
+                        <li>Yardi Voyager + Elevate</li>
+                        <li>Data Modeling</li>
+                        <li>Relational Databases</li>
+                        <li>Azure DevOps</li>
+                        <li>Change Control</li>
+                        <li>Azure Data Factory</li>
+                        <li>Agile Methodologies</li>
+                        <li>Project Lifecycle</li>
+                        <li>Power BI + DAX</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- CONTACT + FOOTER -->
+        <section class="section section-combo" id="contact">
+            <div class="section-inner combo-inner">
+                <div>
+                    <h2 class="section-title" style="text-align:center;">CONTACT</h2>
+
+                    <div class="divider" style="margin-bottom: 34px;">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="window-dots">
+                            <span class="red"></span>
+                            <span class="yellow"></span>
+                            <span class="green"></span>
+                        </div>
+
+                        <p><i class="fa fa-map-marker-alt fa-fw"></i> Dallas, TX</p>
+                        <p><i class="fa fa-envelope fa-fw"></i> Email: jesse.armenio@gmail.com</p>
+
+                        <a href="mailto:jesse.armenio@gmail.com" class="contact-btn">
+                            <i class="fa fa-paper-plane" style="margin-right:8px;"></i>
+                            Click here to email me!
+                        </a>
+                    </div>
+                </div>
+
+                <div class="panel combo-footer-panel footer-wrap" id="footer-box">
+                    <div class="footer-actions">
+                        <a href="#home" class="up-btn">
+                            <i class="fa fa-arrow-up" style="margin-right:8px;"></i>
+                            To the top
+                        </a>
+                    </div>
+
+                    <div class="social-row">
+                        <a href="https://welltower.com/" title="Welltower"><i class="fa fa-suitcase"></i></a>
+                        <a href="https://github.com/jessearmenio" title="GitHub"><i class="fa fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jessearmenio/" title="LinkedIn"><i
+                                class="fa fa-linkedin"></i></a>
+                    </div>
+
+                    <div class="copyright-text">
+                        Made from scratch with <span class="heart">♥</span> by
+                        <a class="dev" title="See this website's code!"
+                            href="https://github.com/jessearmenio/JesseArmenio.com-V2">
+                            Jesse Armenio
+                        </a><br>
+                        Copyright &copy; 2026. All Rights Reserved.
+                    </div>
+
+                    <div class="privacy" style="margin-top: 8px;">
+                        <a href="privacy.html">Privacy Policy</a> |
+                        <a href="terms.html">Terms of Use</a> |
+                        <a href="mailto:jesse.armenio@gmail.com">Contact</a>
+                    </div>
+                </div>
+                <!--<img src="https://raw.githubusercontent.com/jessearmenio/JesseArmenio.com-V2/main/Ja%20-%20website%20footer.png"
+                    id="footer-logo" alt="Footer logo">-->
+            </div>
+        </section>
+    </main>
+    <div id="timeMachine">
+        <div class="tm-tooltip">View past versions</div>
+        <button id="tm-button" aria-label="View legacy websites">
+            <i class="fa fa-clock-rotate-left"></i>
+        </button>
+
+        <div id="tm-panel">
+            <h4>Time Machine</h4>
+            <ul>
+                <li><a href="https://codepen.io/jessearmenio/pen/zYwyyza" target="_blank">2019 V1</a></li>
+                <li><a href="https://www.jessearmenio.com/homev2.html" target="_blank">2021 V2</a></li>
+                <li><a href="https://www.jessearmenio.com/homev3.html" target="_blank">2023 V3</a></li>
+                <li><a href="https://www.jessearmenio.com/homev4.html" target="_blank">2024 V4</a></li>
+            </ul>
+        </div>
+    </div>
     <script>
-        // Image Gallery
-        function onClick(element) {
-            document.getElementById("img01").src = element.src;
-            document.getElementById("modal01").style.display = "block";
-            var captionText = document.getElementById("caption");
-            captionText.innerHTML = element.alt;
-        }
+        (() => {
+            const canvas = document.getElementById("particleCanvas");
+            const ctx = canvas.getContext("2d", { alpha: true });
+            const heroContent = document.getElementById("heroContent");
+
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+            const hint = document.getElementById("hoverHint");
+            if (hint && isTouchDevice) {
+                hint.textContent = "* tap me *";
+            }
+
+            let width = 0;
+            let height = 0;
+            let dpr = Math.min(window.devicePixelRatio || 1, 2);
+            let animationFrameId = 0;
+            let isRunning = true;
+            let heroRect = null;
+            let scrollProgress = 0;
+
+            const pointer = {
+                x: 0,
+                y: 0,
+                active: false
+            };
+
+            const config = {
+                minParticles: isTouchDevice ? 44 : 65,
+                maxParticles: isTouchDevice ? 100 : 155,
+                densityDivisor: isTouchDevice ? 15000 : 9800,
+                minSize: 0.85,
+                maxSize: 2.1,
+                baseSpeedMin: prefersReducedMotion ? 0.05 : 0.14,
+                baseSpeedMax: prefersReducedMotion ? 0.10 : 0.34,
+                linkDistanceMin: 82,
+                linkDistanceMax: 128,
+                hoverDistanceMin: 105,
+                hoverDistanceMax: 170,
+                cursorDistanceMin: 120,
+                cursorDistanceMax: 185,
+                baseLineAlphaMin: 0.08,
+                baseLineAlphaMax: 0.26,
+                pointerAlphaMin: 0.18,
+                pointerAlphaMax: 0.52,
+                glowRadiusMin: 80,
+                glowRadiusMax: 145,
+                backgroundTintMin: 0.03,
+                backgroundTintMax: 0.08,
+                particleColorStart: [220, 232, 248],
+                particleColorEnd: [194, 220, 255],
+                lineColorStart: [118, 166, 235],
+                lineColorEnd: [162, 198, 255],
+                heroPadding: 120
+            };
+
+            const particles = [];
+
+            function clamp(value, min, max) {
+                return Math.max(min, Math.min(max, value));
+            }
+
+            function lerp(start, end, amount) {
+                return start + (end - start) * amount;
+            }
+
+            function colorLerp(a, b, t) {
+                const r = Math.round(lerp(a[0], b[0], t));
+                const g = Math.round(lerp(a[1], b[1], t));
+                const bl = Math.round(lerp(a[2], b[2], t));
+                return `${r}, ${g}, ${bl}`;
+            }
+
+            function getRuntimeSettings() {
+                const t = scrollProgress;
+                return {
+                    linkDistance: lerp(config.linkDistanceMin, config.linkDistanceMax, t),
+                    hoverDistance: lerp(config.hoverDistanceMin, config.hoverDistanceMax, t),
+                    cursorDistance: lerp(config.cursorDistanceMin, config.cursorDistanceMax, t),
+                    baseLineAlpha: lerp(config.baseLineAlphaMin, config.baseLineAlphaMax, t),
+                    pointerAlpha: lerp(config.pointerAlphaMin, config.pointerAlphaMax, t),
+                    glowRadius: lerp(config.glowRadiusMin, config.glowRadiusMax, t),
+                    particleColor: colorLerp(config.particleColorStart, config.particleColorEnd, t),
+                    lineColor: colorLerp(config.lineColorStart, config.lineColorEnd, t),
+                    bgTintAlpha: lerp(config.backgroundTintMin, config.backgroundTintMax, t)
+                };
+            }
+
+            class Particle {
+                constructor() {
+                    this.reset(true);
+                }
+
+                reset(initial = false) {
+                    this.x = initial ? Math.random() * width : Math.random() * width;
+                    this.y = initial ? Math.random() * height : Math.random() * height;
+
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = lerp(config.baseSpeedMin, config.baseSpeedMax, Math.random());
+
+                    this.baseVx = Math.cos(angle) * speed;
+                    this.baseVy = Math.sin(angle) * speed;
+
+                    this.blastVx = 0;
+                    this.blastVy = 0;
+
+                    this.size = lerp(config.minSize, config.maxSize, Math.random());
+                    this.depth = 0.65 + Math.random() * 0.95;
+                }
+
+                update() {
+                    const motionBoost = lerp(0.85, 1.25, scrollProgress);
+
+                    this.x += (this.baseVx + this.blastVx) * this.depth * motionBoost;
+                    this.y += (this.baseVy + this.blastVy) * this.depth * motionBoost;
+
+                    // only damp temporary blast motion
+                    this.blastVx *= 0.94;
+                    this.blastVy *= 0.94;
+
+                    if (Math.abs(this.blastVx) < 0.001) this.blastVx = 0;
+                    if (Math.abs(this.blastVy) < 0.001) this.blastVy = 0;
+
+                    if (this.x < -20) this.x = width + 20;
+                    if (this.x > width + 20) this.x = -20;
+                    if (this.y < -20) this.y = height + 20;
+                    if (this.y > height + 20) this.y = -20;
+
+                    if (heroRect) {
+                        const pad = config.heroPadding;
+                        const left = heroRect.left - pad;
+                        const right = heroRect.right + pad;
+                        const top = heroRect.top - pad;
+                        const bottom = heroRect.bottom + pad;
+
+                        if (this.x > left && this.x < right && this.y > top && this.y < bottom) {
+                            const centerX = (left + right) * 0.5;
+                            const centerY = (top + bottom) * 0.5;
+                            const dx = this.x - centerX;
+                            const dy = this.y - centerY;
+                            const len = Math.hypot(dx, dy) || 1;
+
+                            this.x += (dx / len) * 0.9;
+                            this.y += (dy / len) * 0.9;
+                        }
+                    }
+                }
+
+                draw(runtime) {
+                    const alpha = getHeroFade(this.x, this.y) * (0.36 + this.depth * 0.22);
+                    if (alpha <= 0.02) return;
+
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * this.depth, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${runtime.particleColor}, ${alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            function getParticleTargetCount() {
+                const areaCount = Math.floor((width * height) / config.densityDivisor);
+                const base = clamp(areaCount, config.minParticles, config.maxParticles);
+                const boosted = Math.round(lerp(base, base * 1.28, scrollProgress));
+                return clamp(boosted, config.minParticles, config.maxParticles);
+            }
+
+            function syncParticleCount() {
+                const target = getParticleTargetCount();
+
+                while (particles.length < target) particles.push(new Particle());
+                while (particles.length > target) particles.pop();
+            }
+
+            function resizeCanvas() {
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                width = window.innerWidth;
+                height = window.innerHeight;
+
+                canvas.width = Math.floor(width * dpr);
+                canvas.height = Math.floor(height * dpr);
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function updateHeroRect() {
+                if (!heroContent) {
+                    heroRect = null;
+                    return;
+                }
+
+                const rect = heroContent.getBoundingClientRect();
+                heroRect = {
+                    left: rect.left,
+                    right: rect.right,
+                    top: rect.top,
+                    bottom: rect.bottom
+                };
+            }
+
+            function distSq(ax, ay, bx, by) {
+                const dx = ax - bx;
+                const dy = ay - by;
+                return dx * dx + dy * dy;
+            }
+
+            let currentRuntime = getRuntimeSettings();
+
+            function drawLine(x1, y1, x2, y2, alpha, widthValue) {
+                if (alpha <= 0.01) return;
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.strokeStyle = `rgba(${currentRuntime.lineColor}, ${alpha})`;
+                ctx.lineWidth = widthValue;
+                ctx.stroke();
+            }
+
+            function triggerRocketBlast(x, y, strength = 10, radius = 260) {
+                const radiusSq = radius * radius;
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+
+                    const dx = p.x - x;
+                    const dy = p.y - y;
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq > radiusSq) continue;
+
+                    const dist = Math.sqrt(distSq) || 1;
+                    const falloff = 1 - dist / radius;
+
+                    const glowBoost = 1 + (falloff * 0.8);
+                    const force = strength * falloff * glowBoost;
+                    const nx = dx / dist;
+                    const ny = dy / dist;
+
+                    p.blastVx += nx * force * 0.22;
+                    p.blastVy += ny * force * 0.22;
+
+                    // Extra upward kick near the engine plume
+                    if (dy > 0) {
+                        p.blastVy += force * 0.12;
+                    }
+
+                }
+            }
+
+            function getHeroFade(x, y) {
+                if (!heroRect) return 1;
+
+                const pad = config.heroPadding;
+                const left = heroRect.left - pad;
+                const right = heroRect.right + pad;
+                const top = heroRect.top - pad;
+                const bottom = heroRect.bottom + pad;
+
+                if (x < left || x > right || y < top || y > bottom) return 1;
+
+                const dx = Math.min(Math.abs(x - left), Math.abs(x - right));
+                const dy = Math.min(Math.abs(y - top), Math.abs(y - bottom));
+                const edgeDistance = Math.min(dx, dy);
+
+                return clamp(edgeDistance / 56, 0, 1) * 0.24;
+            }
+
+            function buildSpatialGrid(cellSize) {
+                const grid = new Map();
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    const gx = Math.floor(p.x / cellSize);
+                    const gy = Math.floor(p.y / cellSize);
+                    const key = `${gx},${gy}`;
+
+                    if (!grid.has(key)) grid.set(key, []);
+                    grid.get(key).push(i);
+                }
+
+                return grid;
+            }
+
+            function connectParticles(runtime) {
+                const maxDist = pointer.active ? runtime.hoverDistance : runtime.linkDistance;
+                const maxDistSq = maxDist * maxDist;
+                const grid = buildSpatialGrid(maxDist);
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p1 = particles[i];
+                    const gx = Math.floor(p1.x / maxDist);
+                    const gy = Math.floor(p1.y / maxDist);
+
+                    for (let oy = -1; oy <= 1; oy++) {
+                        for (let ox = -1; ox <= 1; ox++) {
+                            const key = `${gx + ox},${gy + oy}`;
+                            const bucket = grid.get(key);
+                            if (!bucket) continue;
+
+                            for (let k = 0; k < bucket.length; k++) {
+                                const j = bucket[k];
+                                if (j <= i) continue;
+
+                                const p2 = particles[j];
+                                const dSq = distSq(p1.x, p1.y, p2.x, p2.y);
+                                if (dSq >= maxDistSq) continue;
+
+                                const d = Math.sqrt(dSq);
+                                const fade = Math.min(getHeroFade(p1.x, p1.y), getHeroFade(p2.x, p2.y));
+                                const alpha =
+                                    (1 - d / maxDist) *
+                                    runtime.baseLineAlpha *
+                                    fade *
+                                    ((p1.depth + p2.depth) * 0.5);
+
+                                const lineWidth = lerp(0.75, 1.15, scrollProgress);
+                                drawLine(p1.x, p1.y, p2.x, p2.y, alpha, lineWidth);
+                            }
+                        }
+                    }
+                }
+            }
+
+            function connectPointer(runtime) {
+                if (!pointer.active || prefersReducedMotion) return;
+
+                const maxDistSq = runtime.cursorDistance * runtime.cursorDistance;
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    const dSq = distSq(pointer.x, pointer.y, p.x, p.y);
+                    if (dSq >= maxDistSq) continue;
+
+                    const d = Math.sqrt(dSq);
+                    const fade = getHeroFade(p.x, p.y);
+                    const alpha = (1 - d / runtime.cursorDistance) * runtime.pointerAlpha * fade * p.depth;
+                    const lineWidth = lerp(0.95, 1.2, scrollProgress);
+
+                    drawLine(pointer.x, pointer.y, p.x, p.y, alpha, lineWidth);
+                }
+            }
+
+            function drawPointerGlow(runtime) {
+                if (!pointer.active || prefersReducedMotion) return;
+
+                const gradient = ctx.createRadialGradient(
+                    pointer.x,
+                    pointer.y,
+                    0,
+                    pointer.x,
+                    pointer.y,
+                    runtime.glowRadius
+                );
+
+                gradient.addColorStop(0, `rgba(${currentRuntime.lineColor}, ${lerp(0.10, 0.16, scrollProgress)})`);
+                gradient.addColorStop(0.55, `rgba(${currentRuntime.lineColor}, ${lerp(0.04, 0.08, scrollProgress)})`);
+                gradient.addColorStop(1, `rgba(${currentRuntime.lineColor}, 0)`);
+
+                ctx.beginPath();
+                ctx.fillStyle = gradient;
+                ctx.arc(pointer.x, pointer.y, runtime.glowRadius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            function drawBackgroundBloom(runtime) {
+                const gradient = ctx.createRadialGradient(
+                    width * 0.5,
+                    lerp(height * 0.28, height * 0.42, scrollProgress),
+                    0,
+                    width * 0.5,
+                    height * 0.4,
+                    Math.max(width, height) * 0.85
+                );
+
+                gradient.addColorStop(0, `rgba(${currentRuntime.lineColor}, ${runtime.bgTintAlpha})`);
+                gradient.addColorStop(0.45, `rgba(24, 42, 68, ${runtime.bgTintAlpha * 0.35})`);
+                gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, width, height);
+            }
+
+            function updateScrollProgress() {
+                const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+                const raw = window.scrollY / scrollable;
+                scrollProgress = clamp(raw, 0, 1);
+            }
+
+            function animate() {
+                if (!isRunning) return;
+
+                currentRuntime = getRuntimeSettings();
+                syncParticleCount();
+
+                ctx.clearRect(0, 0, width, height);
+                drawBackgroundBloom(currentRuntime);
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw(currentRuntime);
+                }
+
+                connectParticles(currentRuntime);
+                connectPointer(currentRuntime);
+                drawPointerGlow(currentRuntime);
+
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            function handlePointerMove(event) {
+                pointer.x = event.clientX;
+                pointer.y = event.clientY;
+                pointer.active = true;
+            }
+
+            function handleVisibilityChange() {
+                if (document.hidden) {
+                    isRunning = false;
+                    cancelAnimationFrame(animationFrameId);
+                } else {
+                    isRunning = true;
+                    animate();
+                }
+            }
+
+            let resizeTimer = 0;
+            function handleResize() {
+                clearTimeout(resizeTimer);
+
+                resizeTimer = setTimeout(() => {
+                    resizeCanvas();
+                    updateHeroRect();
+                    updateScrollProgress();
+                    syncParticleCount();
+                }, 120);
+            }
+
+            function initializeParticles() {
+                particles.length = 0;
+                syncParticleCount();
+                pointer.x = width * 0.5;
+                pointer.y = height * 0.5;
+            }
+
+            window.addEventListener("pointermove", handlePointerMove, { passive: true });
+            window.addEventListener("pointerdown", handlePointerMove, { passive: true });
+            window.addEventListener("pointerleave", () => {
+                pointer.active = false;
+            });
+            window.addEventListener("blur", () => {
+                pointer.active = false;
+            });
+            window.addEventListener("resize", handleResize, { passive: true });
+            window.addEventListener("scroll", () => {
+                updateScrollProgress();
+                updateHeroRect();
+            }, { passive: true });
+
+            document.addEventListener("visibilitychange", handleVisibilityChange);
+
+            resizeCanvas();
+            updateHeroRect();
+            updateScrollProgress();
+            initializeParticles();
+            animate();
+
+            window.triggerRocketBlast = triggerRocketBlast;
+        })();
+
+        (() => {
+            const sections = Array.from(document.querySelectorAll(".section"));
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            const disableSnapScroll = window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
+
+            if (prefersReducedMotion || disableSnapScroll || sections.length < 2) return;
+
+            let currentSectionIndex = 0;
+            let isSnapping = false;
+            let touchStartY = 0;
+            let touchEndY = 0;
+            let snapReleaseTimer = 0;
+
+            function clamp(value, min, max) {
+                return Math.max(min, Math.min(max, value));
+            }
+
+            function getClosestSectionIndex() {
+                const viewportCenter = window.scrollY + window.innerHeight * 0.5;
+
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+
+                for (let i = 0; i < sections.length; i++) {
+                    const sectionTop = sections[i].offsetTop;
+                    const sectionCenter = sectionTop + sections[i].offsetHeight * 0.5;
+                    const distance = Math.abs(sectionCenter - viewportCenter);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = i;
+                    }
+                }
+
+                return closestIndex;
+            }
+
+            function scrollToSection(index) {
+                const targetIndex = clamp(index, 0, sections.length - 1);
+
+                if (targetIndex === currentSectionIndex && Math.abs(window.scrollY - sections[targetIndex].offsetTop) < 4) {
+                    return;
+                }
+
+                currentSectionIndex = targetIndex;
+                isSnapping = true;
+
+                window.scrollTo({
+                    top: sections[targetIndex].offsetTop,
+                    behavior: "smooth"
+                });
+
+                clearTimeout(snapReleaseTimer);
+                snapReleaseTimer = setTimeout(() => {
+                    isSnapping = false;
+                }, 700);
+            }
+
+            function handleDirectionalSnap(direction) {
+                if (isSnapping) return;
+
+                currentSectionIndex = getClosestSectionIndex();
+
+                if (direction > 0) {
+                    scrollToSection(currentSectionIndex + 1);
+                } else if (direction < 0) {
+                    scrollToSection(currentSectionIndex - 1);
+                }
+            }
+
+            window.addEventListener("wheel", (event) => {
+                if (Math.abs(event.deltaY) < 8) return;
+                handleDirectionalSnap(event.deltaY);
+            }, { passive: true });
+
+            window.addEventListener("keydown", (event) => {
+                if (isSnapping) return;
+
+                if (event.key === "ArrowDown" || event.key === "PageDown" || event.key === " ") {
+                    handleDirectionalSnap(1);
+                }
+
+                if (event.key === "ArrowUp" || event.key === "PageUp") {
+                    handleDirectionalSnap(-1);
+                }
+
+                if (event.key === "Home") {
+                    scrollToSection(0);
+                }
+
+                if (event.key === "End") {
+                    scrollToSection(sections.length - 1);
+                }
+            });
+
+            window.addEventListener("touchstart", (event) => {
+                if (!event.touches.length) return;
+                touchStartY = event.touches[0].clientY;
+            }, { passive: true });
+
+            window.addEventListener("touchend", (event) => {
+                if (!event.changedTouches.length || isSnapping) return;
+
+                touchEndY = event.changedTouches[0].clientY;
+                const deltaY = touchStartY - touchEndY;
+
+                if (Math.abs(deltaY) < 35) return;
+                handleDirectionalSnap(deltaY);
+            }, { passive: true });
+
+            window.addEventListener("scroll", () => {
+                if (isSnapping) return;
+                currentSectionIndex = getClosestSectionIndex();
+            }, { passive: true });
+
+            window.addEventListener("resize", () => {
+                currentSectionIndex = getClosestSectionIndex();
+            }, { passive: true });
+
+
+            (() => {
+                const words = ["evolves.", "innovates.", "enhances.", "matters."];
+                const el = document.getElementById("rotating-word");
+
+                if (!el || el.dataset.rotatorInitialized === "true") return;
+                el.dataset.rotatorInitialized = "true";
+
+                let index = 0;
+                const holdTime = 1500;
+                const exitTime = 550;
+
+                function setWord(nextIndex) {
+                    el.textContent = words[nextIndex];
+                    el.classList.remove("word-exit", "word-enter");
+                    void el.offsetWidth;
+                    el.classList.add("word-enter");
+                }
+
+                function advanceWord() {
+                    if (index >= words.length - 1) {
+                        el.classList.remove("word-exit");
+                        el.classList.add("word-enter");
+                        return;
+                    }
+
+                    el.classList.remove("word-enter");
+                    el.classList.add("word-exit");
+
+                    setTimeout(() => {
+                        index += 1;
+                        setWord(index);
+
+                        if (index < words.length - 1) {
+                            setTimeout(advanceWord, holdTime);
+                        }
+                    }, exitTime);
+                }
+
+                el.textContent = words[index];
+                el.classList.add("word-enter");
+
+                setTimeout(advanceWord, holdTime);
+            })();
+
+            const tmButton = document.getElementById("tm-button");
+            const tmPanel = document.getElementById("tm-panel");
+
+            let open = false;
+
+            tmButton.addEventListener("click", () => {
+                open = !open;
+                tmPanel.style.display = open ? "block" : "none";
+            });
+
+            // Close when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!document.getElementById("timeMachine").contains(e.target)) {
+                    tmPanel.style.display = "none";
+                    open = false;
+                }
+            });
+
+
+            currentSectionIndex = getClosestSectionIndex();
+        })();
+
+        (() => {
+            const words = ["evolves.", "innovates.", "enhances.", "matters."];
+            const el = document.getElementById("rotating-word");
+
+            if (!el || el.dataset.rotatorInitialized === "true") return;
+            el.dataset.rotatorInitialized = "true";
+
+            let index = 0;
+            const holdTime = 1500;
+            const exitTime = 550;
+
+            function setWord(nextIndex) {
+                el.textContent = words[nextIndex];
+                el.classList.remove("word-exit", "word-enter");
+                void el.offsetWidth;
+                el.classList.add("word-enter");
+            }
+
+            function advanceWord() {
+                if (index >= words.length - 1) {
+                    el.classList.remove("word-exit");
+                    el.classList.add("word-enter");
+                    return;
+                }
+
+                el.classList.remove("word-enter");
+                el.classList.add("word-exit");
+
+                setTimeout(() => {
+                    index += 1;
+                    setWord(index);
+
+                    if (index < words.length - 1) {
+                        setTimeout(advanceWord, holdTime);
+                    }
+                }, exitTime);
+            }
+
+            el.textContent = words[index];
+            el.classList.add("word-enter");
+
+            setTimeout(advanceWord, holdTime);
+        })();
+
+        (() => {
+            const logo = document.getElementById("logo");
+            const p1 = document.getElementById("p1");
+            const rocketOverlay = document.getElementById("rocketOverlay");
+
+            if (!logo || !p1 || !rocketOverlay) return;
+
+            const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+            const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+            let rocketBusy = false;
+
+            function wait(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            function updateRocketHint(text, options = {}) {
+                const hint = document.getElementById("hoverHint");
+                if (!hint) return;
+
+                const {
+                    hide = false,
+                    className = ""
+                } = options;
+
+                hint.classList.remove("hint-hide", "hint-countdown");
+
+                if (className) {
+                    hint.classList.add(className);
+                }
+
+                if (typeof text === "string") {
+                    hint.textContent = text;
+                }
+
+                if (hide) {
+                    hint.classList.add("hint-hide");
+                }
+            }
+
+            async function runRocketSequence(e) {
+                if (e) e.preventDefault();
+
+                if (rocketBusy || reducedMotion.matches) return;
+                rocketBusy = true;
+
+                updateRocketHint("T-3", { className: "hint-countdown" });
+
+                logo.classList.add("logo-rocket-active");
+
+                rocketOverlay.getAnimations().forEach(a => a.cancel());
+                rocketOverlay.style.opacity = "1";
+
+                logo.classList.add("logo-rocket-ignite");
+
+                await wait(300);
+
+                logo.classList.add("logo-rocket-burn");
+
+                updateRocketHint("T-3", { className: "hint-countdown" });
+                await wait(1500);
+
+                updateRocketHint("T-2", { className: "hint-countdown" });
+                await wait(1200);
+
+                updateRocketHint("T-1", { className: "hint-countdown" });
+                await wait(800);
+
+                const glow = document.getElementById("rocketGlow");
+
+                if (glow) {
+                    glow.animate(
+                        [
+                            { transform: "scale(1)", opacity: 0.8 },
+                            { transform: "scale(2.8)", opacity: 1 },
+                            { transform: "scale(4.5)", opacity: 0 }
+                        ],
+                        {
+                            duration: 420,
+                            easing: "ease-out"
+                        }
+                    );
+                }
+
+                await wait(120);
+
+                updateRocketHint("", { hide: true });
+
+                logo.classList.remove("logo-rocket-burn");
+
+                const launch = rocketOverlay.animate(
+                    [
+                        {
+                            transform: "translate(0px, 0px) rotate(0deg) scale(1)",
+                            opacity: 1,
+                            offset: 0
+                        },
+                        {
+                            transform: "translate(0px, -40px) rotate(0deg) scale(1.01)",
+                            opacity: 1,
+                            offset: 0.12
+                        },
+                        {
+                            transform: "translate(0px, -150px) rotate(0deg) scale(0.98)",
+                            opacity: 1,
+                            offset: 0.36
+                        },
+                        {
+                            transform: "translate(0px, -520px) rotate(0deg) scale(0.9)",
+                            opacity: 0.98,
+                            offset: 0.72
+                        },
+                        {
+                            transform: "translate(0px, -920px) rotate(0deg) scale(0.82)",
+                            opacity: 0,
+                            offset: 1
+                        }
+                    ],
+                    {
+                        duration: 1850,
+                        easing: "cubic-bezier(0.3, 0.1, 0.7, 0.2)",
+                        fill: "forwards"
+                    }
+                );
+
+                await launch.finished;
+
+                await wait(2400);
+
+                rocketOverlay.getAnimations().forEach(a => a.cancel());
+                rocketOverlay.style.opacity = "1";
+
+                const returnDrift = rocketOverlay.animate(
+                    [
+                        {
+                            transform: "translate(-60px, -760px) rotate(-18deg) scale(0.78)",
+                            opacity: 0
+                        },
+                        {
+                            transform: "translate(42px, -560px) rotate(16deg) scale(0.82)",
+                            opacity: 0.92,
+                            offset: 0.18
+                        },
+                        {
+                            transform: "translate(-34px, -380px) rotate(-12deg) scale(0.88)",
+                            opacity: 1,
+                            offset: 0.4
+                        },
+                        {
+                            transform: "translate(20px, -220px) rotate(9deg) scale(0.94)",
+                            opacity: 1,
+                            offset: 0.62
+                        },
+                        {
+                            transform: "translate(-10px, -90px) rotate(-5deg) scale(0.98)",
+                            opacity: 1,
+                            offset: 0.82
+                        },
+                        {
+                            transform: "translate(0px, 0px) rotate(0deg) scale(1)",
+                            opacity: 1,
+                            offset: 1
+                        }
+                    ],
+                    {
+                        duration: 2500,
+                        easing: "cubic-bezier(0.28, 0.12, 0.2, 1)",
+                        fill: "forwards"
+                    }
+                );
+
+                await returnDrift.finished;
+
+                rocketOverlay.getAnimations().forEach(a => a.cancel());
+                rocketOverlay.style.opacity = "0";
+
+                logo.classList.remove("logo-rocket-ignite");
+                logo.classList.remove("logo-rocket-active");
+
+                p1.style.opacity = "1";
+                rocketBusy = false;
+            }
+
+            if (isTouchDevice) {
+                logo.addEventListener("click", runRocketSequence);
+            } else {
+                logo.addEventListener("mouseenter", runRocketSequence);
+            }
+        })();
+
+        (() => {
+            const aboutSection = document.getElementById("about");
+            const metricValues = Array.from(document.querySelectorAll("#about .metric-value"));
+
+            if (!aboutSection || !metricValues.length) return;
+
+            const metricTrigger = document.querySelector("#about .combo-metrics") || aboutSection;
+            let hasScrolledDownFromHome = false;
+            let hasAnimatedMetrics = false;
+
+            function parseMetricValue(text) {
+                const original = text.trim();
+                const numberMatch = original.match(/[\d,.]+/);
+
+                if (!numberMatch) {
+                    return null;
+                }
+
+                const numericText = numberMatch[0];
+                const targetValue = parseFloat(numericText.replace(/,/g, ""));
+                const prefix = original.slice(0, numberMatch.index);
+                const suffix = original.slice(numberMatch.index + numericText.length);
+                const decimals = (numericText.split(".")[1] || "").length;
+
+                return {
+                    original,
+                    targetValue,
+                    prefix,
+                    suffix,
+                    decimals
+                };
+            }
+
+            function formatMetricValue(value, decimals) {
+                return value.toLocaleString("en-US", {
+                    minimumFractionDigits: decimals,
+                    maximumFractionDigits: decimals
+                });
+            }
+
+            function animateMetric(el, targetValue, prefix, suffix, decimals, duration = 1800) {
+                const startTime = performance.now();
+
+                function step(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const currentValue = targetValue * eased;
+
+                    const displayValue =
+                        decimals > 0
+                            ? currentValue
+                            : Math.round(currentValue);
+
+                    el.textContent = `${prefix}${formatMetricValue(displayValue, decimals)}${suffix}`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        el.textContent = `${prefix}${formatMetricValue(targetValue, decimals)}${suffix}`;
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            function startMetricAnimation() {
+                if (hasAnimatedMetrics) return;
+                hasAnimatedMetrics = true;
+
+                metricValues.forEach((el, index) => {
+                    const parsed = parseMetricValue(el.dataset.targetValue || el.textContent);
+
+                    if (!parsed) return;
+
+                    setTimeout(() => {
+                        animateMetric(
+                            el,
+                            parsed.targetValue,
+                            parsed.prefix,
+                            parsed.suffix,
+                            parsed.decimals
+                        );
+                    }, index * 120);
+                });
+            }
+
+            function isMetricTriggerInView() {
+                const rect = metricTrigger.getBoundingClientRect();
+                const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+                const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+                const visibilityRatio = Math.max(0, visibleHeight) / Math.max(1, rect.height);
+
+                return (
+                    visibleHeight > 0 &&
+                    (
+                        visibilityRatio >= 0.35 ||
+                        (rect.top <= viewportHeight * 0.72 && rect.bottom >= viewportHeight * 0.18)
+                    )
+                );
+            }
+
+            function maybeStartMetrics() {
+                if (!hasScrolledDownFromHome && window.scrollY > 10) {
+                    hasScrolledDownFromHome = true;
+                }
+
+                if (!hasScrolledDownFromHome || hasAnimatedMetrics) return;
+                if (isMetricTriggerInView()) {
+                    startMetricAnimation();
+                }
+            }
+
+            metricValues.forEach((el) => {
+                const parsed = parseMetricValue(el.textContent);
+                if (!parsed) return;
+
+                el.dataset.targetValue = parsed.original;
+                el.textContent = `${parsed.prefix}${formatMetricValue(0, parsed.decimals)}${parsed.suffix}`;
+            });
+
+            window.addEventListener("wheel", (event) => {
+                if (event.deltaY > 0) {
+                    hasScrolledDownFromHome = true;
+                    setTimeout(maybeStartMetrics, 120);
+                    setTimeout(maybeStartMetrics, 450);
+                    setTimeout(maybeStartMetrics, 800);
+                }
+            }, { passive: true });
+
+            window.addEventListener("keydown", (event) => {
+                if (
+                    event.key === "ArrowDown" ||
+                    event.key === "PageDown" ||
+                    event.key === " "
+                ) {
+                    hasScrolledDownFromHome = true;
+                    setTimeout(maybeStartMetrics, 120);
+                    setTimeout(maybeStartMetrics, 450);
+                    setTimeout(maybeStartMetrics, 800);
+                }
+            });
+
+            let touchStartY = 0;
+
+            window.addEventListener("touchstart", (event) => {
+                if (!event.touches.length) return;
+                touchStartY = event.touches[0].clientY;
+            }, { passive: true });
+
+            window.addEventListener("touchend", (event) => {
+                if (!event.changedTouches.length) return;
+
+                const touchEndY = event.changedTouches[0].clientY;
+                const deltaY = touchStartY - touchEndY;
+
+                if (deltaY > 30) {
+                    hasScrolledDownFromHome = true;
+                    setTimeout(maybeStartMetrics, 120);
+                    setTimeout(maybeStartMetrics, 450);
+                    setTimeout(maybeStartMetrics, 800);
+                }
+            }, { passive: true });
+
+            window.addEventListener("scroll", maybeStartMetrics, { passive: true });
+            setTimeout(maybeStartMetrics, 100);
+        })();
 
     </script>
-    -->
-
 </body>
 
 </html>
